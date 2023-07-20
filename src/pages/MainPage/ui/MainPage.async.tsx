@@ -1,6 +1,6 @@
 import { lazy } from "react";
 
-const MainPage = lazy(
+export const MainPageAsync = lazy(
     () =>
         new Promise((res) => {
             setTimeout(() => {
@@ -9,5 +9,3 @@ const MainPage = lazy(
             }, 1000);
         })
 );
-
-export default MainPage;

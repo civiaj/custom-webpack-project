@@ -5,12 +5,19 @@
     "main": "index.js",
     "scripts": {
         "start": "webpack serve --env port=3000",
-        "build:dev": "webpack --env mode=development",
-        "build:prod": "webpack --env mode=production"
+        "build:prod": "webpack --env mode=production",
+        "build:dev": "webpack --env mode=development"
     },
-    "keywords": [],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/civiaj/custom-webpack-project.git"
+    },
     "author": "",
     "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/civiaj/custom-webpack-project/issues"
+    },
+    "homepage": "https://github.com/civiaj/custom-webpack-project#readme",
     "devDependencies": {
         "@types/node": "^20.4.2",
         "@types/react": "^18.2.15",
@@ -21,7 +28,7 @@
         "css-loader": "^6.8.1",
         "html-webpack-plugin": "^5.5.3",
         "mini-css-extract-plugin": "^2.7.6",
-        "sass": "^1.63.6",
+        "sass": "^1.64.0",
         "sass-loader": "^13.3.2",
         "style-loader": "^3.3.3",
         "ts-loader": "^9.4.4",

@@ -1,27 +1,31 @@
+import { buildDevServer } from "./buildDevServer";
+import { buildLoaders } from "./buildLoaders";
+import { buildPlugins } from "./buildPlugins";
+import { buildResolvers } from "./buildResolvers";
 import { BuildOptions } from "./types/config";
 import webpack from "webpack";
 
-import { buildResolves } from "./buildResolves";
-import { buildModules } from "./buildModules";
-import { buildPlugins } from "./buildPlugins";
-import { buildDevServer } from "./buildDevServer";
-
 export function buildWebpackConfig(options: BuildOptions): webpack.Configuration {
-    const { mode, paths } = options;
+    const { mode, paths, isDev } = options;
     return {
-        mode,
-        entry: paths.enrty,
+        //входная точка нашего проекта
+        entry: paths.entry,
+        //куда будет производиться сборка
         output: {
             filename: "[name].[contenthash].js",
             path: paths.build,
             clean: true,
         },
+        //плагины
         plugins: buildPlugins(options),
+        //лоадеры
         module: {
-            rules: buildModules(options),
+            rules: buildLoaders(options),
         },
-        resolve: buildResolves(),
-        devtool: options.isDev ? "inline-source-map" : undefined,
-        devServer: options.isDev ? buildDevServer(options) : undefined,
+        //резолверы
+        resolve: buildResolvers(options),
+        mode,
+        devtool: isDev ? "inline-source-map" : undefined,
+        devServer: isDev ? buildDevServer(options) : undefined,
     };
 }
