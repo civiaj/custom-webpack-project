@@ -8,6 +8,7 @@ module.exports = {
         "plugin:react/recommended",
         "plugin:@typescript-eslint/recommended",
         "plugin:react-hooks/recommended",
+        "plugin:i18next/recommended",
     ],
     overrides: [
         {
@@ -25,13 +26,14 @@ module.exports = {
         ecmaVersion: "latest",
         sourceType: "module",
     },
-    plugins: ["@typescript-eslint", "react"],
+    plugins: ["@typescript-eslint", "react", "i18next"],
     rules: {
         indent: "off",
         "linebreak-style": ["error", "windows"],
         quotes: ["error", "double"],
         semi: ["error", "always"],
         "react/react-in-jsx-scope": "off",
+        "i18next/no-literal-string": ["error", { markupOnly: true }],
     },
     settings: {
         react: {
