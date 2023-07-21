@@ -1,0 +1,34 @@
+.Sidebar {
+    color: inherit;
+    height: calc(100vh - var(--navbar-height));
+    width: var(--sidebar-width);
+    background: var(--color-grey-200);
+    position: relative;
+    transition: width 0.3s, background-color 0.3s, border 0.3s, transition 0.3s;
+}
+
+.collapsed {
+    color: inherit;
+    width: var(--sidebar-width-collapsed);
+}
+
+.switchers {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    display: flex;
+    gap: 2rem;
+
+    button {
+        height: 3.2rem;
+        width: 3.2rem;
+
+        svg {
+            font-weight: 700;
+        }
+    }
+}
+
+.collapsed .switchers {
+    flex-direction: column;
+}

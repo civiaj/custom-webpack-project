@@ -19,6 +19,8 @@
     },
     "homepage": "https://github.com/civiaj/custom-webpack-project#readme",
     "devDependencies": {
+        "@pmmmwh/react-refresh-webpack-plugin": "^0.5.10",
+        "@svgr/webpack": "^8.0.1",
         "@types/node": "^20.4.2",
         "@types/react": "^18.2.15",
         "@types/react-dom": "^18.2.7",
@@ -26,6 +28,7 @@
         "@types/webpack": "^5.28.1",
         "@types/webpack-dev-server": "^4.7.2",
         "css-loader": "^6.8.1",
+        "file-loader": "^6.2.0",
         "html-webpack-plugin": "^5.5.3",
         "mini-css-extract-plugin": "^2.7.6",
         "sass": "^1.64.0",
@@ -40,8 +43,13 @@
         "webpack-dev-server": "^4.15.1"
     },
     "dependencies": {
+        "i18next": "^23.2.11",
+        "i18next-browser-languagedetector": "^7.1.0",
+        "i18next-http-backend": "^2.2.1",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
+        "react-i18next": "^13.0.2",
+        "react-icons": "^4.10.1",
         "react-router-dom": "^6.14.2"
     }
 }
