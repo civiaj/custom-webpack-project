@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import { Outlet } from "react-router-dom";
 import { useTheme } from "./providers/ThemeProvider/lib/useTheme";
-import { classNames } from "../shared/lib/classNames";
+import { classNames } from "../shared/lib/classNames/classNames";
 import { Navbar } from "widgets/Navbar";
 import { Sidebar } from "widgets/Sidebar";
 

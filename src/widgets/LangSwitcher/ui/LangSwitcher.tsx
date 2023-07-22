@@ -1,7 +1,7 @@
 import { AppButton } from "shared/ui/AppButton";
 import { useTranslation } from "react-i18next";
 import { GlobeIcon } from "shared/assets/langSwitchIcons/GlobeIcon";
-import { classNames } from "shared/lib/classNames";
+import { classNames } from "shared/lib/classNames/classNames";
 
 interface LangSwitcherrProps {
     className?: string;
