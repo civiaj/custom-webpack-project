@@ -10,11 +10,15 @@ interface LangSwitcherrProps {
 export function LangSwitcher(props: LangSwitcherrProps) {
     const { className } = props;
     const { i18n } = useTranslation();
-    const toggle = () => i18n.changeLanguage(i18n.language === "ru" ? "en" : "ru");
+    const toggle = async () =>
+        await i18n.changeLanguage(i18n.language === "ru" ? "en" : "ru");
 
     return (
         <>
-            <AppButton className={classNames("", {}, [className])} onClick={toggle}>
+            <AppButton
+                className={classNames("", {}, [className])}
+                onClick={toggle}
+            >
                 <GlobeIcon />
             </AppButton>
         </>

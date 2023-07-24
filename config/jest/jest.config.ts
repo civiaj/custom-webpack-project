@@ -10,13 +10,27 @@ const config: Config = {
     clearMocks: true,
     coveragePathIgnorePatterns: ["\\\\node_modules\\\\"],
     // An array of directory names to be searched recursively up from the requiring module's location
-    moduleDirectories: ["node_modules"],
+    moduleDirectories: ["node_modules", "src"],
     // An array of file extensions your modules use
-    moduleFileExtensions: ["js", "mjs", "cjs", "jsx", "ts", "tsx", "json", "node"],
+    moduleFileExtensions: [
+        "js",
+        "mjs",
+        "cjs",
+        "jsx",
+        "ts",
+        "tsx",
+        "json",
+        "node",
+    ],
     // The root directory that Jest should scan for tests and modules within
     rootDir: "../../",
     // The glob patterns Jest uses to detect test files
     testMatch: ["<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)"],
+    setupFilesAfterEnv: ["<rootDir>/config/jest/setupTests.ts"],
+    moduleNameMapper: {
+        "\\.(svg)$": "<rootDir>/config/jest/JestEmptyComponent.tsx",
+        "\\.(s?css)$": "identity-obj-proxy",
+    },
 
     // All imported modules in your tests should be mocked automatically
     // automock: false,
