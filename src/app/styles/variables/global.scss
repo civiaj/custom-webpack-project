@@ -9,6 +9,7 @@
     --navbar-height: 5rem;
     --sidebar-width: 30rem;
     --sidebar-width-collapsed: 6rem;
+    --main-padding: 2rem 2rem;
 }
 
 * {
@@ -48,5 +49,5 @@ svg {
 
 .page {
     flex-grow: 1;
-    padding: 2rem;
+    padding: var(--main-padding);
 }

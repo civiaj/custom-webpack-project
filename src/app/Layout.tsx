@@ -4,6 +4,7 @@ import { useTheme } from "./providers/ThemeProvider/lib/useTheme";
 import { classNames } from "../shared/lib/classNames/classNames";
 import { Navbar } from "widgets/Navbar";
 import { Sidebar } from "widgets/Sidebar";
+import { SuspenseLoader } from "widgets/SuspenseLoader";
 
 function Layout() {
     const { theme } = useTheme();
@@ -12,7 +13,7 @@ function Layout() {
             <Navbar />
             <div className="app-layout">
                 <Sidebar />
-                <Suspense fallback={<div>Loading...</div>}>
+                <Suspense fallback={<SuspenseLoader />}>
                     <main className="page">
                         <Outlet />
                     </main>

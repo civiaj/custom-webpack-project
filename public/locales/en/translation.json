@@ -2,5 +2,10 @@
   "lang": "en",
   "about": "About",
   "MainPage": "Main page",
-  "Home": "Home"
+  "Home": "Home",
+  "No Page": "Ooops! There is no such page.",
+  "app-error": "An unexpected error occurred",
+  "on-main": "Go to main page",
+  "generate-error": "Generate Error",
+  "toggle": "Toggle"
 }
