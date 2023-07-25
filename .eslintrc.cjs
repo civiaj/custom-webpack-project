@@ -1,8 +1,8 @@
-/* eslint-disable linebreak-style */
 module.exports = {
     env: {
         browser: true,
         es2021: true,
+        node: true,
     },
     extends: [
         "eslint:recommended",
@@ -14,9 +14,6 @@ module.exports = {
     ],
     overrides: [
         {
-            env: {
-                node: true,
-            },
             files: [".eslintrc.{js,cjs}", "**/src/**/*.test.{ts,tsx}"],
             rules: {
                 "i18next/no-literal-string": "off",
