@@ -18,9 +18,6 @@ module.exports = {
             rules: {
                 "i18next/no-literal-string": "off",
             },
-            parserOptions: {
-                sourceType: "script",
-            },
         },
     ],
     parser: "@typescript-eslint/parser",
@@ -31,7 +28,6 @@ module.exports = {
     plugins: ["@typescript-eslint", "react", "i18next"],
     rules: {
         indent: "off",
-        "linebreak-style": ["error", "windows"],
         quotes: "off",
         semi: ["error", "always"],
         "react/react-in-jsx-scope": "off",
