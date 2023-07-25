@@ -93,7 +93,8 @@
     },
     "overrides": {
         "loki": {
-            "@storybook/react": "$@storybook/react"
+            "@storybook/react": "$@storybook/react",
+            "chrome-remote-interface": "0.31.3"
         }
     },
     "loki": {
