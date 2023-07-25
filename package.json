@@ -9,7 +9,7 @@
         "build:dev": "webpack --env mode=development",
         "lint:ts": "eslint \"**/*.{ts,tsx}\"",
         "lint:ts:fix": "eslint \"**/*.{ts,tsx}\" --fix",
-        "stylelint": "stylelint \"**/*.scss\"",
+        "lint:scss": "stylelint \"**/*.scss\"",
         "stylelint:fix": "stylelint \"**/*.scss\" --fix",
         "test:unit": "jest --config ./config/jest/jest.config.ts",
         "test:ui": "npx loki test",
