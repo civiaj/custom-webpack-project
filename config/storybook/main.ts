@@ -26,6 +26,7 @@ const config: StorybookConfig = {
         // prettier-ignore
         // eslint-disable-next-line
         // @ts-ignore
+        //
         const fileLoaderRule = config?.module?.rules.find((rule) => rule?.test.test(".svg"));
         // eslint-disable-next-line
         // @ts-ignore
