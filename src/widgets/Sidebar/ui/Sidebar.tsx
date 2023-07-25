@@ -3,20 +3,19 @@ import cls from "./Sidebar.module.scss";
 import { useState } from "react";
 import { ThemeSwitcher } from "widgets/ThemeSwitcher";
 import { LangSwitcher } from "widgets/LangSwitcher";
-import { useTranslation } from "react-i18next";
 import { AppButton } from "shared/ui/AppButton";
+import { ToggleSidebar } from "shared/assets/ToggleSidebar.tsx/ToggleSidebar";
 
 interface SidebarProps {
     className?: string;
 }
+
 export const Sidebar = ({ className }: SidebarProps) => {
     const [collapsed, setCollapsed] = useState(false);
 
     const onToggle = () => {
         setCollapsed((p) => !p);
     };
-
-    const { t } = useTranslation();
 
     return (
         <div
@@ -26,7 +25,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
             ])}
         >
             <AppButton data-testid="sidebar-toggle" onClick={onToggle}>
-                {t("toggle")}
+                <ToggleSidebar />
             </AppButton>
             <div className={cls.switchers}>
                 <ThemeSwitcher />
