@@ -1,9 +1,26 @@
 .AppButton {
-    color: inherit;
     cursor: pointer;
+    background-color: var(--color-grey-0);
+    color: var(--color-grey-700);
+    border: 1px solid var(--color-grey-400);
+    border-radius: 10px;
+    transition: background-color 0.1s;
+    overflow: hidden;
+
+    &:hover {
+        background-color: var(--color-grey-100);
+
+        svg {
+            fill: var(--color-grey-600);
+        }
+    }
 }
 
 .clear {
-    background: none;
     border: none;
+    background: none;
+}
+
+.outline {
+    border: 1px;
 }

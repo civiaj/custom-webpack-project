@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 module.exports = {
     env: {
         browser: true,
@@ -9,6 +10,7 @@ module.exports = {
         "plugin:@typescript-eslint/recommended",
         "plugin:react-hooks/recommended",
         "plugin:i18next/recommended",
+        "plugin:storybook/recommended",
     ],
     overrides: [
         {
@@ -36,7 +38,13 @@ module.exports = {
         quotes: "off",
         semi: ["error", "always"],
         "react/react-in-jsx-scope": "off",
-        "i18next/no-literal-string": ["error", { markupOnly: true }],
+        "i18next/no-literal-string": [
+            "error",
+            {
+                markupOnly: true,
+            },
+        ],
+        "react/display-name": "off",
     },
     settings: {
         react: {
