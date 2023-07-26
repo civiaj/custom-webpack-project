@@ -45,13 +45,13 @@ export const Sidebar = ({ className }: SidebarProps) => {
                         <li>
                             <AppLink theme={AppLinkTheme.PRIMARY} to={"/"}>
                                 <HomeIcon />
-                                <p>{t("Home")}</p>
+                                <span>{t("Home")}</span>
                             </AppLink>
                         </li>
                         <li>
                             <AppLink theme={AppLinkTheme.PRIMARY} to={"/about"}>
                                 <AboutIcon />
-                                <p>{t("about")}</p>
+                                <span>{t("about")}</span>
                             </AppLink>
                         </li>
                     </ul>
