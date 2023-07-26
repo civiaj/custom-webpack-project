@@ -7,5 +7,6 @@
   "app-error": "An unexpected error occurred",
   "on-main": "Go to main page",
   "generate-error": "Generate Error",
-  "toggle": "Toggle"
+  "toggle": "Toggle",
+  "curLang": "en"
 }

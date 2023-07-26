@@ -1,4 +1,4 @@
-import { AppButton } from "shared/ui/AppButton";
+import { AppButton, AppButtonTheme } from "shared/ui/AppButton";
 import { useTranslation } from "react-i18next";
 import { GlobeIcon } from "shared/assets/langSwitchIcons/GlobeIcon";
 import { classNames } from "shared/lib/classNames/classNames";
@@ -16,6 +16,7 @@ export function LangSwitcher(props: LangSwitcherrProps) {
     return (
         <>
             <AppButton
+                theme={AppButtonTheme.ICON}
                 className={classNames("", {}, [className])}
                 onClick={toggle}
             >

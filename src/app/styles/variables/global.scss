@@ -1,5 +1,8 @@
 :root {
     --font-family-base: roboto, sans-serif;
+    --font-size-s: 1.2rem;
+    --font-line-s: 1.6rem;
+    --font-s: var(--font-size-s) / var(--font-line-s) var(--font-family-base);
     --font-size-m: 1.6rem;
     --font-line-m: 2.4rem;
     --font-m: var(--font-size-m) / var(--font-line-m) var(--font-family-base);
@@ -8,12 +11,19 @@
     --font-l: var(--font-size-l) / var(--font-line-l) var(--font-family-base);
     --navbar-height: 5rem;
     --sidebar-width: 30rem;
-    --sidebar-width-collapsed: 6rem;
+    --sidebar-width-collapsed: 6.4rem;
     --main-padding: 2rem 2rem;
+    --border-radius-sm: 4px;
+    --p-s: 1rem;
+    --g-s: 1rem;
 }
 
 * {
     transition: background-color 0.3s, border 0.3s;
+
+    &:focus {
+        outline: 2px solid var(--color-grey-400);
+    }
 }
 
 img {
@@ -29,11 +39,6 @@ html {
 
 button:has(svg) {
     line-height: 0;
-}
-
-svg {
-    height: 100%;
-    width: 100%;
 }
 
 .app {

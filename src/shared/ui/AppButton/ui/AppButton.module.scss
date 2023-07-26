@@ -1,19 +1,7 @@
 .AppButton {
     cursor: pointer;
-    background-color: var(--color-grey-0);
-    color: var(--color-grey-700);
-    border: 1px solid var(--color-grey-400);
-    border-radius: 10px;
-    transition: background-color 0.1s;
+
     overflow: hidden;
-
-    &:hover {
-        background-color: var(--color-grey-100);
-
-        svg {
-            fill: var(--color-grey-600);
-        }
-    }
 }
 
 .clear {
@@ -23,4 +11,21 @@
 
 .outline {
     border: 1px;
+}
+
+.icon {
+    padding: 1rem;
+    border: none;
+    background-color: var(--color-grey-0);
+    color: var(--color-grey-700);
+    border-radius: 50%;
+
+    svg {
+        width: 2.4rem;
+        height: 2.4rem;
+    }
+
+    &:hover {
+        background-color: var(--color-grey-100);
+    }
 }

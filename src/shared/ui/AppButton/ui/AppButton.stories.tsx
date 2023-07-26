@@ -18,22 +18,15 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const LightThemeBtn: Story = {
+export const IconButtonLight: Story = {
     args: {
-        children: "Button",
+        theme: AppButtonTheme.ICON,
     },
 };
 
-export const DarkThemeBtn: Story = {
+export const IconButtonDark: Story = {
     args: {
-        children: "Button",
+        theme: AppButtonTheme.ICON,
     },
     decorators: [ThemeDecorator(Theme.DARK)],
-};
-
-export const ClearBtn: Story = {
-    args: {
-        children: "Button",
-        theme: AppButtonTheme.CLEAR,
-    },
 };
