@@ -32,33 +32,34 @@ export const Sidebar = ({ className }: SidebarProps) => {
                 className,
             ])}
         >
-            <AppButton
-                theme={AppButtonTheme.ICON}
-                data-testid="sidebar-toggle"
-                onClick={onToggle}
-            >
-                {collapsed ? <ToggleRight /> : <ToggleLeft />}
-            </AppButton>
-            <nav>
-                <ul>
-                    <li>
-                        <AppLink theme={AppLinkTheme.PRIMARY} to={"/"}>
-                            <HomeIcon />
-                            {!collapsed && t("Home")}
-                        </AppLink>
-                    </li>
-                    <li>
-                        <AppLink theme={AppLinkTheme.PRIMARY} to={"/about"}>
-                            <AboutIcon />
-                            {!collapsed && t("about")}
-                        </AppLink>
-                    </li>
-                </ul>
-            </nav>
+            <div className={cls.navigation}>
+                <AppButton
+                    theme={AppButtonTheme.ICON}
+                    data-testid="sidebar-toggle"
+                    onClick={onToggle}
+                >
+                    {collapsed ? <ToggleRight /> : <ToggleLeft />}
+                </AppButton>
+                <nav>
+                    <ul>
+                        <li>
+                            <AppLink theme={AppLinkTheme.PRIMARY} to={"/"}>
+                                <HomeIcon />
+                                <p>{t("Home")}</p>
+                            </AppLink>
+                        </li>
+                        <li>
+                            <AppLink theme={AppLinkTheme.PRIMARY} to={"/about"}>
+                                <AboutIcon />
+                                <p>{t("about")}</p>
+                            </AppLink>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
             <div className={cls.switchers}>
                 <ThemeSwitcher />
-                <LangSwitcher />
-                <p className={cls.lang}>{t("curLang")}</p>
+                <LangSwitcher collapsed={collapsed} />
             </div>
         </div>
     );

@@ -1,56 +1,60 @@
 .Sidebar {
-    color: inherit;
     height: calc(100vh - var(--navbar-height));
     width: var(--sidebar-width);
     background: var(--color-grey-0);
     border-right: 1px solid var(--color-grey-100);
-    position: relative;
-    transition: width 0.3s, background-color 0.3s, border 0.3s, transition 0.3s;
     padding: var(--p-s);
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: flex-start;
     gap: var(--g-s);
+    transition: width 0.3s, background-color 0.3s, border 0.3s, transition 0.3s;
+}
 
-    nav {
-        width: 100%;
+.navigation {
+    display: flex;
+    flex-direction: column;
+    gap: var(--g-s);
+    width: 100%;
+
+    button {
+        align-self: flex-start;
     }
 
     ul {
         display: flex;
         flex-direction: column;
         gap: var(--g-s);
+    }
 
-        li {
-            a {
-                padding: var(--p-s);
-                border-radius: var(--border-radius-sm);
-                display: flex;
-                align-items: center;
-                gap: 2rem;
-                font-weight: 500;
-                flex-shrink: 0;
+    a {
+        display: block;
+        padding: var(--p-s);
+        border-radius: var(--border-radius-sm);
+        display: flex;
+        align-items: center;
+        gap: var(--g-s);
+        line-height: 0;
+        font-weight: 500;
+        opacity: 1;
 
-                svg {
-                    width: 2.4rem;
-                    height: 2.4rem;
-                }
+        &:hover {
+            background-color: var(--color-grey-100);
+        }
 
-                &:hover {
-                    background-color: var(--color-grey-100);
-                }
-            }
+        svg {
+            flex-shrink: 0;
+            height: 2.1rem;
+            width: 2.1rem;
         }
     }
 }
 
 .switchers {
-    position: absolute;
     display: flex;
     align-items: center;
     gap: var(--g-s);
-    bottom: 1rem;
-    left: 1rem;
 }
 
 .collapsed {
@@ -58,13 +62,14 @@
 
     .switchers {
         flex-direction: column;
-        left: calc(var(--sidebar-width-collapsed) / 2);
-        transform: translateX(-50%);
     }
-}
 
-.lang {
-    text-transform: uppercase;
-    font: var(--font-s);
-    font-weight: 700;
+    a {
+        gap: 0;
+
+        p {
+            width: 0;
+            opacity: 0;
+        }
+    }
 }
