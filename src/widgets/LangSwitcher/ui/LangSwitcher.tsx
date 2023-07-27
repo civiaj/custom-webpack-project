@@ -1,7 +1,7 @@
-import { AppButton, AppButtonTheme } from "shared/ui/AppButton";
+import { AppButton, AppButtonTheme } from "shared/ui";
 import { useTranslation } from "react-i18next";
 import { GlobeIcon } from "shared/assets/langSwitchIcons/GlobeIcon";
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames } from "shared/lib";
 import cls from "./LangSwitcher.module.scss";
 
 interface LangSwitcherrProps {
@@ -19,17 +19,13 @@ export function LangSwitcher(props: LangSwitcherrProps) {
         <>
             <AppButton
                 theme={AppButtonTheme.ICON}
-                className={classNames("", {}, [className])}
+                className={classNames("", { [cls.vertical]: collapsed }, [
+                    className,
+                ])}
                 onClick={toggle}
             >
-                <div
-                    className={classNames(cls.flex, {
-                        [cls.vertical]: collapsed,
-                    })}
-                >
-                    <GlobeIcon />
-                    <p className={cls.lang}>{t("curLang")}</p>
-                </div>
+                <GlobeIcon />
+                <span>{t("curLang")}</span>
             </AppButton>
         </>
     );

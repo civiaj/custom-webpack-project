@@ -19,13 +19,11 @@
 }
 
 .content {
-    border-radius: var(--border-radius-sm);
+    border-radius: var(--border-radius-s);
     background-color: var(--color-grey-50);
     font: var(--font-m);
     color: var(--color-grey-700);
     border: 1px solid var(--color-grey-100);
-    width: 60%;
-    padding: var(--main-padding);
     transform: scale(0.9);
     opacity: 0;
     transition: transform 0.3s, opacity 0.3s;

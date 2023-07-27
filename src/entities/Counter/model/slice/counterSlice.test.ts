@@ -1,5 +1,6 @@
 import { DeepPartial } from "@reduxjs/toolkit";
-import { CounterSchema, counterActions, counterReducer } from "./counterSlice";
+import { counterActions, counterReducer } from "./counterSlice";
+import { CounterSchema } from "../types/counter";
 
 describe("counterSlice.test", () => {
     test("increment", () => {

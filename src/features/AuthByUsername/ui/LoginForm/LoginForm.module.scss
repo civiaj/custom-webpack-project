@@ -1,0 +1,20 @@
+.LoginForm {
+    display: flex;
+    gap: var(--g-m);
+    flex-direction: column;
+
+    label {
+        display: flex;
+        flex-direction: column;
+        font-weight: 500;
+        gap: var(--g-vs);
+
+        input {
+            font-weight: normal;
+        }
+    }
+}
+
+.loginBtn {
+    align-self: flex-end;
+}

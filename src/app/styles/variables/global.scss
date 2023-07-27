@@ -9,16 +9,43 @@
     --font-size-l: 2.4rem;
     --font-line-l: 3.2rem;
     --font-l: var(--font-size-l) / var(--font-line-l) var(--font-family-base);
-    --navbar-height: 5rem;
+    --navbar-height: 7rem;
     --sidebar-width: 30rem;
     --sidebar-width-collapsed: 6.4rem;
-    --main-padding: 2rem 2rem;
-    --border-radius-sm: 4px;
-    --p-s: 1rem;
+    --p-vs: 0.4rem 0.4rem;
+    --p-s: 1rem 1rem;
+    --p-m: 2rem 2rem;
+    --p-l: 3rem 3rem;
+    --px-vs: 0.4rem;
+    --px-s: 1rem;
+    --px-m: 2rem;
+    --px-l: 3rem;
+    --py-vs: 0.4rem;
+    --py-s: 1rem;
+    --py-m: 2rem;
+    --py-l: 3rem;
+    --m-s: 1rem 1rem;
+    --m-m: 2rem 2rem;
+    --m-l: 3rem 3rem;
+    --mx-s: 1rem;
+    --mx-m: 2rem;
+    --mx-l: 3rem;
+    --my-s: 1rem;
+    --my-m: 2rem;
+    --my-l: 3rem;
+    --g-vs: 0.4rem;
     --g-s: 1rem;
+    --g-m: 2rem;
+    --g-l: 3rem;
+    --svg-h-s: 2.1rem;
+    --svg-w-s: 2.1rem;
+    --border-radius-s: 4px;
+    --border-radius-m: 8px;
     --z-index-modal: 1000;
     --overlay-bg: rgb(0 0 0 / 0.4);
     --overlay-bg-start: rgb(0 0 0 / 0);
+    --color-brand: #bb86fc;
+    --color-brand-hover: #a861ff;
 }
 
 * {
@@ -40,10 +67,6 @@ html {
     font-size: 62.5%;
 }
 
-button:has(svg) {
-    line-height: 0;
-}
-
 .app {
     font: var(--font-m);
     color: var(--color-grey-700);
@@ -58,5 +81,5 @@ button:has(svg) {
 
 .page {
     flex-grow: 1;
-    padding: var(--main-padding);
+    padding: var(--p-m);
 }

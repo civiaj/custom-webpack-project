@@ -1,6 +1,6 @@
 import { classNames } from "shared/lib";
 import cls from "./SuspenseLoader.module.scss";
-import { Loader } from "shared/ui/Loader";
+import { Loader } from "shared/ui";
 
 interface SuspenseLoaderProps {
     className?: string;

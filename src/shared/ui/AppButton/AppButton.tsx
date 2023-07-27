@@ -1,11 +1,10 @@
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames } from "shared/lib";
 import cls from "./AppButton.module.scss";
 import { ButtonHTMLAttributes, FC } from "react";
 
 export enum AppButtonTheme {
-    CLEAR = "clear",
-    OUTLINE = "outline",
-    ICON = "icon",
+    REGULAR = "regular",
+    ICON = "svg-with-span",
 }
 
 interface AppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {

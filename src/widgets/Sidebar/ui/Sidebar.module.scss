@@ -29,7 +29,7 @@
         flex-direction: column;
     }
 
-    span {
+    .linktext {
         opacity: 0;
         width: 0;
     }
@@ -45,6 +45,11 @@
     gap: var(--g-s);
     width: 100%;
 
+    .linktext {
+        display: inline-block;
+        white-space: nowrap;
+    }
+
     ul {
         display: flex;
         flex-direction: column;
@@ -53,17 +58,12 @@
 
     a {
         padding: var(--p-s);
-        border-radius: var(--border-radius-sm);
+        border-radius: var(--border-radius-s);
         display: flex;
         align-items: center;
         gap: var(--g-s);
         font-weight: 500;
         opacity: 1;
-
-        span {
-            display: inline-block;
-            white-space: nowrap;
-        }
 
         &:hover {
             background-color: var(--color-grey-100);
@@ -71,8 +71,8 @@
 
         svg {
             flex-shrink: 0;
-            height: 2.1rem;
-            width: 2.1rem;
+            height: var(--svg-h-s);
+            width: var(--svg-w-s);
         }
     }
 }

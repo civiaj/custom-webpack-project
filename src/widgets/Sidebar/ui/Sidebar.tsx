@@ -1,15 +1,15 @@
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames } from "shared/lib";
 import cls from "./Sidebar.module.scss";
 import { useState } from "react";
 import { ThemeSwitcher } from "widgets/ThemeSwitcher";
 import { LangSwitcher } from "widgets/LangSwitcher";
-import { AppButton, AppButtonTheme } from "shared/ui/AppButton";
+import { AppButton, AppButtonTheme } from "shared/ui";
 import {
     ToggleLeft,
     ToggleRight,
 } from "shared/assets/SidebarIcons/ToggleSidebar";
 import { useTranslation } from "react-i18next";
-import { AppLink, AppLinkTheme } from "shared/ui/AppLink";
+import { AppLink, AppLinkTheme } from "shared/ui";
 import { HomeIcon } from "shared/assets/SidebarIcons/HomeIcon";
 import { AboutIcon } from "shared/assets/SidebarIcons/AboutIcon";
 
@@ -45,13 +45,17 @@ export const Sidebar = ({ className }: SidebarProps) => {
                         <li>
                             <AppLink theme={AppLinkTheme.PRIMARY} to={"/"}>
                                 <HomeIcon />
-                                <span>{t("Home")}</span>
+                                <span className={cls.linktext}>
+                                    {t("Home")}
+                                </span>
                             </AppLink>
                         </li>
                         <li>
                             <AppLink theme={AppLinkTheme.PRIMARY} to={"/about"}>
                                 <AboutIcon />
-                                <span>{t("about")}</span>
+                                <span className={cls.linktext}>
+                                    {t("about")}
+                                </span>
                             </AppLink>
                         </li>
                     </ul>

@@ -1,7 +1,7 @@
 import { classNames } from "shared/lib";
 import cls from "./Modal.module.scss";
 import { ReactNode, useCallback, useEffect, useRef, useState } from "react";
-import { Portal } from "shared/ui/Portal/ui/Portal";
+import { Portal } from "shared/ui";
 
 interface ModalProps {
     children?: ReactNode;
@@ -9,14 +9,16 @@ interface ModalProps {
     onClose?: () => void;
     className?: string;
     onClosing?: boolean;
+    lazy?: boolean;
 }
 
 const ANIMATION_TIME = 300;
 
 export function Modal(props: ModalProps) {
-    const { className, children, isOpen, onClose } = props;
+    const { className, children, isOpen, onClose, lazy } = props;
 
     const [isClosing, setIsClosing] = useState(false);
+    const [isMounted, setIsMounted] = useState(false);
     const timerRef = useRef<ReturnType<typeof setTimeout>>();
 
     const handleStartClose = useCallback(() => {
@@ -51,13 +53,19 @@ export function Modal(props: ModalProps) {
         };
     }, [isOpen, handleKey]);
 
+    useEffect(() => {
+        if (isOpen) setIsMounted(true);
+    }, [isOpen]);
+
+    if (lazy && !isMounted) return null;
+
     return (
         <Portal>
-            <div className={classNames(cls.Modal, mods, [className])}>
-                <div className={cls.overlay} onClick={handleStartClose}>
+            <div className={classNames(cls.Modal, mods)}>
+                <div className={cls.overlay} onMouseDown={handleStartClose}>
                     <div
-                        className={cls.content}
-                        onClick={(e) => e.stopPropagation()}
+                        className={classNames(cls.content, {}, [className])}
+                        onMouseDown={(e) => e.stopPropagation()}
                     >
                         {children}
                     </div>

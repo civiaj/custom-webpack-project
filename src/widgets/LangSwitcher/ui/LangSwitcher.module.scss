@@ -1,15 +1,9 @@
 .flex {
     display: flex;
     align-items: center;
-    gap: 0.6rem;
+    gap: var(--g-vs);
 }
 
 .vertical {
     flex-direction: column;
-}
-
-.lang {
-    text-transform: uppercase;
-    font: var(--font-s);
-    font-weight: 700;
 }

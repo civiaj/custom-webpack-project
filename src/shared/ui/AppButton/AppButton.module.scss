@@ -1,0 +1,42 @@
+.AppButton {
+    cursor: pointer;
+    border: none;
+}
+
+.svg-with-span {
+    padding: var(--p-s);
+    background-color: var(--color-grey-0);
+    color: var(--color-grey-700);
+    border-radius: var(--border-radius-s);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--g-s);
+
+    span {
+        text-transform: uppercase;
+        font: var(--font-s);
+        font-weight: 700;
+    }
+
+    svg {
+        width: var(--svg-w-s);
+        height: var(--svg-h-s);
+    }
+
+    &:hover {
+        background-color: var(--color-grey-100);
+    }
+}
+
+.regular {
+    border-radius: var(--border-radius-s);
+    background-color: var(--color-brand);
+    color: var(--color-grey-50);
+    padding: var(--px-vs) var(--py-m);
+    font-weight: 500;
+
+    &:hover {
+        background-color: var(--color-brand-hover);
+    }
+}

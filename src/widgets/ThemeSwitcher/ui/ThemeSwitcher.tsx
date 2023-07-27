@@ -1,9 +1,9 @@
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames } from "shared/lib";
 import { FC } from "react";
 import { Theme, useTheme } from "app/providers/ThemeProvider";
 import { MoonIcon } from "shared/assets/themeSwitchIcons/MoonIcon";
 import { SunIcon } from "shared/assets/themeSwitchIcons/SunIcon";
-import { AppButton, AppButtonTheme } from "shared/ui/AppButton";
+import { AppButton, AppButtonTheme } from "shared/ui";
 
 interface ThemeSwitcherProps {
     className?: string;
