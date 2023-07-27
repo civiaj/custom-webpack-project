@@ -30,7 +30,7 @@ jobs:
             - name: unit tests
               run: npm run test:unit
               if: always()
-            #   problems with loki, change in package.json/loki/target 'chrome.app' - to test on local machine and 'chome.docker' - to test on github actions
+            #   problems with loki v.0.32.0, change in package.json/loki/target 'chrome.app' - to test on local machine and 'chome.docker' - to test on github actions
             # - name: build storybook
             #   run: npm run storybook:build
             #   if: always()
