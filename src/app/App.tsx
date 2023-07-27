@@ -1,11 +1,14 @@
+import { StoreProvider } from "app/providers/StoreProvider";
 import { ThemeProvider } from "app/providers/ThemeProvider";
 import { AppRouter } from "app/providers/router";
 
 function App() {
     return (
-        <ThemeProvider>
-            <AppRouter />
-        </ThemeProvider>
+        <StoreProvider>
+            <ThemeProvider>
+                <AppRouter />
+            </ThemeProvider>
+        </StoreProvider>
     );
 }
 export default App;

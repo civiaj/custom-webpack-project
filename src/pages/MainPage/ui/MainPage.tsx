@@ -1,3 +1,4 @@
+import { Counter } from "entities/Counter";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Modal } from "shared/ui/Modal";
@@ -12,6 +13,7 @@ function MainPage() {
             <div>{t("MainPage")}</div>
             <button onClick={() => setOpen(true)}>----</button>
             <Modal isOpen={open} onClose={handleClose} />
+            <Counter />
         </>
     );
 }
