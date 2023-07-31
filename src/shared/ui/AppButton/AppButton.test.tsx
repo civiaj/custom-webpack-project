@@ -8,6 +8,6 @@ describe("AppButton", () => {
     });
     test("btn with theme clear", () => {
         render(<AppButton theme={AppButtonTheme.REGULAR}>Test</AppButton>);
-        expect(screen.getByText("Test")).toHaveClass("clear");
+        expect(screen.getByText("Test")).toHaveClass("regular");
     });
 });
