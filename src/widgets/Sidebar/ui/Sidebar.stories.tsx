@@ -8,7 +8,7 @@ const meta = {
     title: "widget/Sidebar",
     component: Sidebar,
     parameters: {
-        layout: "centered",
+        layout: "fullscreen",
     },
     tags: ["autodocs"],
     argTypes: {},

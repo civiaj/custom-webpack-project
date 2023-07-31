@@ -8,7 +8,7 @@ const meta = {
     title: "widget/PageError",
     component: PageError,
     parameters: {
-        layout: "centered",
+        layout: "fullsceen",
     },
     tags: ["autodocs"],
     argTypes: {},

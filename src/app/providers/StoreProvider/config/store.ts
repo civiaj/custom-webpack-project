@@ -14,7 +14,7 @@ const rootReducer = combineReducers({
 export function createReduxStore(preloadedState?: PreloadedState<RootState>) {
     return configureStore({
         reducer: rootReducer,
-        devTools: __IS_DEV__,
+        devTools: true, // __IS_DEV__ - пока поменял на true потому что не пока не понимаю как в стори тест прокинуть эту переменную
         preloadedState,
     });
 }

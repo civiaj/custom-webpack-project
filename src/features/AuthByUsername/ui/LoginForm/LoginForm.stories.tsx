@@ -1,28 +1,27 @@
 import type { Meta, StoryObj } from "@storybook/react";
-
-import { LangSwitcher } from "./LangSwitcher";
+import { LoginForm } from "./LoginForm";
 import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator";
 import { Theme } from "app/providers/ThemeProvider";
 
 const meta = {
-    title: "widget/LangSwitcher",
-    component: LangSwitcher,
+    title: "feature/LoginForm",
+    component: LoginForm,
     parameters: {
         layout: "fullscreen",
     },
     tags: ["autodocs"],
     argTypes: {},
-} satisfies Meta<typeof LangSwitcher>;
+} satisfies Meta<typeof LoginForm>;
 
 export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const LightThemeLangSwitcher: Story = {
+export const LightThemeLoginForm: Story = {
     args: {},
 };
 
-export const DarkThemeLangSwitcher: Story = {
+export const DarkThemeLoginForm: Story = {
     args: {},
     decorators: [ThemeDecorator(Theme.DARK)],
 };

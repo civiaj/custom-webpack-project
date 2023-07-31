@@ -8,7 +8,7 @@ const meta = {
     title: "widget/SuspenseLoader",
     component: SuspenseLoader,
     parameters: {
-        layout: "centered",
+        layout: "fullsceen",
     },
     tags: ["autodocs"],
     argTypes: {},

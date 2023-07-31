@@ -1,28 +1,27 @@
 import type { Meta, StoryObj } from "@storybook/react";
-
-import { LangSwitcher } from "./LangSwitcher";
+import { AppInput } from "./AppInput";
 import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator";
 import { Theme } from "app/providers/ThemeProvider";
 
 const meta = {
-    title: "widget/LangSwitcher",
-    component: LangSwitcher,
+    title: "shared/AppInput",
+    component: AppInput,
     parameters: {
         layout: "fullscreen",
     },
     tags: ["autodocs"],
     argTypes: {},
-} satisfies Meta<typeof LangSwitcher>;
+} satisfies Meta<typeof AppInput>;
 
 export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const LightThemeLangSwitcher: Story = {
+export const LightThemeAppInput: Story = {
     args: {},
 };
 
-export const DarkThemeLangSwitcher: Story = {
+export const DarkThemeAppInput: Story = {
     args: {},
     decorators: [ThemeDecorator(Theme.DARK)],
 };

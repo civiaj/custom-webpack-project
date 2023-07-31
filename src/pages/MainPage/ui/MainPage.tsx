@@ -7,6 +7,7 @@ function MainPage() {
         <>
             <div>{t("MainPage")}</div>
             <Counter />
+            <h1></h1>
         </>
     );
 }
