@@ -8,10 +8,10 @@ import { FormEventHandler, memo, useCallback } from "react";
 import { loginByUsername } from "features/AuthByUsername/model/services/loginByUsername";
 import { Message, MessageTheme } from "shared/ui";
 
-import { getPassword } from "../../model/selector/getPassword";
-import { getIsLoading } from "../../model/selector/getIsLoading";
-import { getError } from "../../model/selector/getError";
-import { getUsername } from "../../model/selector/getUsername";
+import { getPassword } from "../../model/selector/getPassword/getPassword";
+import { getIsLoading } from "../../model/selector/getIsLoading/getIsLoading";
+import { getError } from "../../model/selector/getError/getError";
+import { getUsername } from "../../model/selector/getUsername/getUsername";
 import {
     DynamicReducerLoader,
     ReducerList,
