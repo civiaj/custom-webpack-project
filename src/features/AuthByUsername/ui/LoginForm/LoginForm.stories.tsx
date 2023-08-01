@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { LoginForm } from "./LoginForm";
+import LoginForm from "./LoginForm";
 import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator";
 import { Theme } from "app/providers/ThemeProvider";
 
@@ -17,11 +17,11 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const LightThemeLoginForm: Story = {
+export const LoginFormL: Story = {
     args: {},
 };
 
-export const DarkThemeLoginForm: Story = {
+export const LoginFormD: Story = {
     args: {},
     decorators: [ThemeDecorator(Theme.DARK)],
 };

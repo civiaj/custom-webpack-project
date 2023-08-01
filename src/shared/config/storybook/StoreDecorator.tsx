@@ -1,15 +1,11 @@
+import { DeepPartial } from "@reduxjs/toolkit";
 import { StoryFn } from "@storybook/react";
-import { StoreProvider } from "app/providers/StoreProvider";
+import { RootState, StoreProvider } from "app/providers/StoreProvider";
 
-export function StoreDecorator(Story: StoryFn) {
+export const StoreDecorator = (preloadedState: DeepPartial<RootState>) => (Story: StoryFn) => {
     return (
-        <StoreProvider
-            preloadedState={{
-                counter: { value: 10 },
-                user: { authDate: { id: "test", username: "Test" } },
-            }}
-        >
+        <StoreProvider preloadedState={preloadedState as RootState}>
             <Story />
         </StoreProvider>
     );
-}
+};

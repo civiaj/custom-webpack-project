@@ -1,24 +1,23 @@
-import {
-    PreloadedState,
-    combineReducers,
-    configureStore,
-} from "@reduxjs/toolkit";
+import { PreloadedState, ReducersMapObject, configureStore } from "@reduxjs/toolkit";
 import { counterReducer } from "entities/Counter";
 import { userReducer } from "entities/User";
-
-const rootReducer = combineReducers({
-    counter: counterReducer,
-    user: userReducer,
-});
+import { createReducerManager } from "./reducerManager";
+import { RootState } from "./types";
 
 export function createReduxStore(preloadedState?: PreloadedState<RootState>) {
-    return configureStore({
-        reducer: rootReducer,
-        devTools: true, // __IS_DEV__ - пока поменял на true потому что не пока не понимаю как в стори тест прокинуть эту переменную
+    const rootReducers: ReducersMapObject<RootState> = {
+        counter: counterReducer,
+        user: userReducer,
+    };
+
+    const reducerManager = createReducerManager(rootReducers);
+
+    const store = configureStore({
+        reducer: reducerManager.reduce,
+        devTools: __IS_DEV__,
         preloadedState,
     });
+    //@ts-ignore
+    store.reducerManager = reducerManager;
+    return store;
 }
-
-export type RootState = ReturnType<typeof rootReducer>;
-export type AppStore = ReturnType<typeof createReduxStore>;
-export type AppDispatch = AppStore["dispatch"];

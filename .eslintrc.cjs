@@ -39,6 +39,7 @@ module.exports = {
         ],
         "react/display-name": "off",
         "@typescript-eslint/no-var-requires": "off",
+        "@typescript-eslint/ban-ts-comment": "off",
     },
     settings: {
         react: {

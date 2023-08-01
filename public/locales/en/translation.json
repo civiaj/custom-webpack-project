@@ -11,5 +11,7 @@
   "curLang": "en",
   "login": "Login",
   "username": "Username",
-  "password": "Password"
+  "password": "Password",
+  "logout": "Logout",
+  "login-error": "Wrong uername or password"
 }
