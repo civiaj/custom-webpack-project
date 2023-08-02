@@ -12,9 +12,9 @@ export function PageError({ className }: PageErrorProps) {
     const handleRedirect = () => window.location.replace("/");
     return (
         <div className={classNames(cls.PageError, {}, [className])}>
-            <h2>{t("app-error")}</h2>
+            <h2>{t("unexpected error")}</h2>
             <AppButton theme={AppButtonTheme.REGULAR} onClick={handleRedirect}>
-                {t("on-main")}
+                {t("to main")}
             </AppButton>
         </div>
     );

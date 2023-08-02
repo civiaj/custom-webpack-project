@@ -19,11 +19,12 @@ import {
 
 export interface LoginFormProps {
     className?: string;
+    onSuccess: () => void;
 }
 
 const loginReducers: ReducerList = { login: loginReducer };
 
-const LoginForm = memo(({ className }: LoginFormProps) => {
+const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
     const username = useAppSelector(getUsername);
@@ -45,9 +46,10 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
         [dispatch]
     );
 
-    const onLogin: FormEventHandler<HTMLFormElement> = (e) => {
+    const onLogin: FormEventHandler<HTMLFormElement> = async (e) => {
         e.preventDefault();
-        dispatch(loginByUsername({ password, username }));
+        const promise = await dispatch(loginByUsername({ password, username }));
+        if (promise.meta.requestStatus === "fulfilled") onSuccess();
     };
 
     return (

@@ -1,0 +1,39 @@
+.linktext {
+    display: inline-block;
+    white-space: nowrap;
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+
+.collapsed {
+    .linktext {
+        opacity: 0;
+        width: 0;
+    }
+
+    a {
+        gap: 0;
+    }
+}
+
+.SidebarItem {
+    a {
+        padding: var(--p-s);
+        border-radius: var(--border-radius-s);
+        display: flex;
+        align-items: center;
+        gap: var(--g-s);
+        font-weight: 500;
+        opacity: 1;
+
+        &:hover {
+            background-color: var(--color-grey-100);
+        }
+
+        svg {
+            flex-shrink: 0;
+            height: var(--svg-h-s);
+            width: var(--svg-w-s);
+        }
+    }
+}

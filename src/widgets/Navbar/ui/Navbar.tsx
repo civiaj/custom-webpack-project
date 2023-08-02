@@ -1,6 +1,6 @@
 import { classNames } from "shared/lib";
 import cls from "./Navbar.module.scss";
-import { useState } from "react";
+import { memo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { AppButton, AppButtonTheme } from "shared/ui";
 import { LoginIcon } from "shared/assets/NavbarIcons/LoginIcon";
@@ -11,7 +11,7 @@ import { getUserAuthData, userActions } from "entities/User";
 interface NavbarProps {
     className?: string;
 }
-export function Navbar({ className }: NavbarProps) {
+export const Navbar = memo(({ className }: NavbarProps) => {
     const [open, setOpen] = useState(false);
     const handleClose = () => setOpen(false);
     const handleOpen = () => {
@@ -21,7 +21,6 @@ export function Navbar({ className }: NavbarProps) {
     const authData = useAppSelector(getUserAuthData);
     const dispatch = useAppDispatch();
     const onLogout = () => {
-        setOpen(false);
         dispatch(userActions.logout());
     };
 
@@ -45,4 +44,4 @@ export function Navbar({ className }: NavbarProps) {
             <LoginModal isOpen={open} onClose={handleClose} />
         </nav>
     );
-}
+});

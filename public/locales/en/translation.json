@@ -1,17 +1,22 @@
 {
-  "lang": "en",
-  "about": "About",
-  "MainPage": "Main page",
-  "Home": "Home",
-  "No Page": "Ooops! There is no such page.",
-  "app-error": "An unexpected error occurred",
-  "on-main": "Go to main page",
-  "generate-error": "Generate Error",
-  "toggle": "Toggle",
-  "curLang": "en",
-  "login": "Login",
-  "username": "Username",
-  "password": "Password",
-  "logout": "Logout",
-  "login-error": "Wrong uername or password"
+    "lang": "en",
+
+    "mainSI": "Home",
+    "profileSI": "Profile",
+    "aboutSI": "About",
+
+    "not found error page": "Ooops! There is no such page.",
+    "unexpected error": "An unexpected error occurred",
+
+    "main page": "Main page",
+    "to main": "Go to main page",
+
+    "generate-error": "Generate Error",
+    "toggle": "Toggle",
+    "curLang": "en",
+    "login": "Login",
+    "username": "Username",
+    "password": "Password",
+    "logout": "Logout",
+    "login-error": "Wrong uername or password"
 }

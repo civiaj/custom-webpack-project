@@ -9,12 +9,14 @@ import { CounterSchema } from "entities/Counter";
 import { UserSchema } from "entities/User";
 import { LoginSchema } from "features/AuthByUsername";
 import { createReduxStore } from "./store";
+import { ProfileSchema } from "entities/Profile";
 
 export type RootState = {
     counter: CounterSchema;
     user: UserSchema;
     // async
     login?: LoginSchema;
+    profile?: ProfileSchema;
 };
 
 export type AppStore = ReturnType<typeof createReduxStore>;

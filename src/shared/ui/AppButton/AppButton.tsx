@@ -1,6 +1,6 @@
 import { classNames } from "shared/lib";
 import cls from "./AppButton.module.scss";
-import { ButtonHTMLAttributes, FC } from "react";
+import { ButtonHTMLAttributes, memo } from "react";
 import { ButtonSpinner } from "../ButtonSpinner/ButtonSpinner";
 
 export enum AppButtonTheme {
@@ -13,14 +13,8 @@ interface AppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     theme?: AppButtonTheme;
 }
 
-export const AppButton: FC<AppButtonProps> = (props) => {
-    const {
-        className,
-        theme,
-        children,
-        disabled = false,
-        ...otherProps
-    } = props;
+export const AppButton = memo((props: AppButtonProps) => {
+    const { className, theme, children, disabled = false, ...otherProps } = props;
     return (
         <button
             {...otherProps}
@@ -30,4 +24,4 @@ export const AppButton: FC<AppButtonProps> = (props) => {
             {!disabled ? children : <ButtonSpinner />}
         </button>
     );
-};
+});
