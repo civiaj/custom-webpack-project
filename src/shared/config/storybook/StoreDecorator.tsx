@@ -1,9 +1,10 @@
-import { DeepPartial, ReducersMapObject } from "@reduxjs/toolkit";
+import { ReducersMapObject } from "@reduxjs/toolkit";
 import { StoryFn } from "@storybook/react";
 import { RootState, StoreProvider } from "app/providers/StoreProvider";
 import { loginReducer } from "features/AuthByUsername/model/slice/loginSlice";
+import { ReducerList } from "shared/lib/components/DynamicReducerLoader/DynamicReducerLoader";
 
-const defaultAsyncReducers: DeepPartial<ReducersMapObject<RootState>> = {
+const defaultAsyncReducers: ReducerList = {
     login: loginReducer,
 };
 

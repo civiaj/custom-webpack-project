@@ -2,7 +2,7 @@ import { createReduxStore } from "app/providers/StoreProvider/config/store";
 import { ReactNode } from "react";
 import { Provider } from "react-redux";
 import { RootState } from "../config/types";
-import { DeepPartial, ReducersMapObject } from "@reduxjs/toolkit";
+import { ReducersMapObject } from "@reduxjs/toolkit";
 
 interface StoreProviderProps {
     children: ReactNode;
@@ -12,6 +12,7 @@ interface StoreProviderProps {
 
 export function StoreProvider(props: StoreProviderProps) {
     const { children, preloadedState, asyncReducers } = props;
+
     const store = createReduxStore(
         preloadedState as RootState,
         asyncReducers as ReducersMapObject<RootState>

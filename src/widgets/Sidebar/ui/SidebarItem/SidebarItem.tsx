@@ -6,7 +6,7 @@ import cls from "./SidebarItem.module.scss";
 import { memo } from "react";
 
 interface SidebarItemProps {
-    item?: SidebarItemType;
+    item: SidebarItemType;
     collapsed: boolean;
 }
 
@@ -15,7 +15,11 @@ export const SidebarItem = memo((props: SidebarItemProps) => {
     const { t } = useTranslation();
 
     return (
-        <li className={classNames(cls.SidebarItem, { [cls.collapsed]: collapsed })}>
+        <li
+            className={classNames(cls.SidebarItem, {
+                [cls.collapsed]: collapsed,
+            })}
+        >
             <AppLink theme={AppLinkTheme.PRIMARY} to={item.path}>
                 {<item.Icon />}
                 <span className={cls.linktext}>{t(item.text)}</span>

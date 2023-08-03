@@ -29,14 +29,14 @@ export const AppInput = memo((props: AppInputProps) => {
         ...otherProps
     } = props;
 
-    const inputRef = useRef<HTMLInputElement>();
+    const inputRef = useRef<HTMLInputElement>(null);
 
     const handleChange: ChangeEventHandler<HTMLInputElement> = (e) => {
         onChange?.(e.target.value);
     };
 
     useEffect(() => {
-        if (autoFocus) inputRef.current.focus();
+        if (autoFocus) inputRef?.current?.focus();
     }, [autoFocus]);
 
     return (

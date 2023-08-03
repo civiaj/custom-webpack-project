@@ -10,7 +10,7 @@ export function useTheme(): useThemeResult {
     const { setTheme, theme } = useContext(ThemeContext);
     const toggleTheme = () => {
         const newTheme = theme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT;
-        setTheme(newTheme);
+        setTheme?.(newTheme);
     };
-    return { theme, toggleTheme };
+    return { theme: theme || Theme.LIGHT, toggleTheme };
 }

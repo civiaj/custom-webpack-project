@@ -2,6 +2,7 @@ import { classNames } from "shared/lib";
 import cls from "./Modal.module.scss";
 import { ReactNode, useCallback, useEffect, useRef, useState } from "react";
 import { Portal } from "shared/ui";
+import { Mods } from "shared/lib/classNames/classNames";
 
 interface ModalProps {
     children?: ReactNode;
@@ -40,7 +41,7 @@ export function Modal(props: ModalProps) {
         [handleStartClose]
     );
 
-    const mods: Record<string, boolean> = {
+    const mods: Mods = {
         [cls.opened]: isOpen,
         [cls.closing]: isClosing,
     };

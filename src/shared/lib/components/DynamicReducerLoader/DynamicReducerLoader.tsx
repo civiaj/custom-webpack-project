@@ -1,13 +1,15 @@
 import { Reducer } from "@reduxjs/toolkit";
-import { RootStateKey, RootStateWithManager, useAppDispatch } from "app/providers/StoreProvider";
+import {
+    RootStateKey,
+    RootStateWithManager,
+    useAppDispatch,
+} from "app/providers/StoreProvider";
 import { ReactNode, useEffect } from "react";
 import { useStore } from "react-redux";
 
 export type ReducerList = {
     [name in RootStateKey]?: Reducer;
 };
-
-type ReducerListEmtry = [RootStateKey, Reducer];
 
 interface DynamicReducerLoaderProps {
     children: ReactNode;
@@ -21,14 +23,14 @@ export const DynamicReducerLoader = (props: DynamicReducerLoaderProps) => {
     const dispatch = useAppDispatch();
 
     useEffect(() => {
-        Object.entries(reducers).forEach(([reducerName, reducer]: ReducerListEmtry) => {
-            store.reducerManager.add(reducerName, reducer);
+        Object.entries(reducers).forEach(([reducerName, reducer]) => {
+            store?.reducerManager?.add(reducerName as RootStateKey, reducer);
             dispatch({ type: `@INIT ${reducerName} REDUCER` });
         });
         return () => {
             if (removeAfterUnmount) {
-                Object.entries(reducers).forEach(([reducerName]: ReducerListEmtry) => {
-                    store.reducerManager.remove(reducerName);
+                Object.entries(reducers).forEach(([reducerName]) => {
+                    store?.reducerManager?.remove(reducerName as RootStateKey);
                     dispatch({ type: `@DESTROY ${reducerName} REDUCER` });
                 });
             }

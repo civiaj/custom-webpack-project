@@ -1,4 +1,10 @@
-import { profileReducer } from "entities/Profile";
+import { useAppDispatch } from "app/providers/StoreProvider";
+import {
+    ProfileCard,
+    fetchProfileData,
+    profileReducer,
+} from "entities/Profile";
+import { useEffect } from "react";
 import {
     DynamicReducerLoader,
     ReducerList,
@@ -9,9 +15,15 @@ const profileReducers: ReducerList = {
 };
 
 const ProfilePage = () => {
+    const dispatch = useAppDispatch();
+
+    useEffect(() => {
+        dispatch(fetchProfileData());
+    }, [dispatch]);
+
     return (
         <DynamicReducerLoader reducers={profileReducers}>
-            <div></div>
+            <ProfileCard />
         </DynamicReducerLoader>
     );
 };

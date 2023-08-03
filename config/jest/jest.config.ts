@@ -12,16 +12,7 @@ const config: Config = {
     // An array of directory names to be searched recursively up from the requiring module's location
     moduleDirectories: ["node_modules", "src"],
     // An array of file extensions your modules use
-    moduleFileExtensions: [
-        "js",
-        "mjs",
-        "cjs",
-        "jsx",
-        "ts",
-        "tsx",
-        "json",
-        "node",
-    ],
+    moduleFileExtensions: ["js", "mjs", "cjs", "jsx", "ts", "tsx", "json", "node"],
     // The root directory that Jest should scan for tests and modules within
     rootDir: "../../",
     // The glob patterns Jest uses to detect test files
@@ -34,6 +25,7 @@ const config: Config = {
     // A set of global variables that need to be available in all test environments
     globals: {
         __IS_DEV__: true,
+        __API__: "",
     },
 
     // All imported modules in your tests should be mocked automatically

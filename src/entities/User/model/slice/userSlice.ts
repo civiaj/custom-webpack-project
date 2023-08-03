@@ -16,7 +16,7 @@ const userSlice = createSlice({
             if (user) state.authData = JSON.parse(user);
         },
         logout: (state) => {
-            state.authData = null;
+            state.authData = undefined;
             localStorage.removeItem(LOCAL_STORAGE_USER_KEY);
         },
     },

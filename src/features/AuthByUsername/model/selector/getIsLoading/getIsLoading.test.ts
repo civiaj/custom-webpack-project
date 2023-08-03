@@ -1,4 +1,3 @@
-import { DeepPartial } from "@reduxjs/toolkit";
 import { RootState } from "app/providers/StoreProvider";
 import { getIsLoading } from "./getIsLoading";
 

@@ -54,7 +54,10 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
 
     return (
         <DynamicReducerLoader reducers={loginReducers}>
-            <form onSubmit={onLogin} className={classNames(cls.LoginForm, {}, [className])}>
+            <form
+                onSubmit={onLogin}
+                className={classNames(cls.LoginForm, {}, [className])}
+            >
                 <label htmlFor="username">
                     {t("username")}
                     <AppInput
@@ -74,7 +77,12 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
                         type="text"
                     />
                 </label>
-                {error && <Message text={t("login-error")} theme={MessageTheme.ERROR} />}
+                {error && (
+                    <Message
+                        text={t("login-error")}
+                        theme={MessageTheme.ERROR}
+                    />
+                )}
                 <AppButton
                     className={cls.loginBtn}
                     theme={AppButtonTheme.REGULAR}
