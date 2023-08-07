@@ -9,6 +9,7 @@ export interface SidebarItemType {
     path: string;
     text: string;
     Icon: IconType;
+    authOnly?: boolean;
 }
 
 export const sidebarItemsList: SidebarItemType[] = [
@@ -21,11 +22,13 @@ export const sidebarItemsList: SidebarItemType[] = [
         path: routePath.profile,
         Icon: ProfileIcon,
         text: "profileSI",
+        authOnly: true,
     },
     {
         path: routePath.articles,
         Icon: ArticlesIcon,
         text: "articleSI",
+        authOnly: true,
     },
     {
         path: routePath.about,

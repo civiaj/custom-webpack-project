@@ -4,7 +4,7 @@ import { getProfileReadOnly } from "./getProfileReadOnly";
 describe("getProfileReadOnly.test", () => {
     test("should return read only status", () => {
         const state: DeepPartial<RootState> = {
-            profile: { readonly: true },
+            profile: { readOnly: true },
         };
         expect(getProfileReadOnly(state as RootState)).toEqual(true);
     });

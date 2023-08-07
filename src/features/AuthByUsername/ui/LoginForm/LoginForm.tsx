@@ -88,6 +88,7 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
                     theme={AppButtonTheme.REGULAR}
                     type="submit"
                     disabled={isLoading}
+                    isLoading={isLoading}
                 >
                     {t("login")}
                 </AppButton>
