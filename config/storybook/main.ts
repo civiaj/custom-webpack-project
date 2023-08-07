@@ -18,7 +18,7 @@ const config: StorybookConfig = {
     docs: {
         autodocs: "tag",
     },
-    webpackFinal: (config: webpack.Configuration) => {
+    webpackFinal: async (config: webpack.Configuration) => {
         const src = path.resolve(__dirname, "..", "..", "src");
         config.resolve?.modules?.push(src);
         config.resolve?.extensions?.push(".ts", ".tsx");
@@ -40,6 +40,7 @@ const config: StorybookConfig = {
             new webpack.DefinePlugin({
                 __IS_DEV__: JSON.stringify(true),
                 __API__: JSON.stringify(""),
+                __PROJECT__: JSON.stringify("storybook"),
             })
         );
         return config;

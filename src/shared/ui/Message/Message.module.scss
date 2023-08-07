@@ -1,5 +1,6 @@
 .title {
     font: var(--font-l);
+    font-weight: 700;
 }
 
 .text {
@@ -12,4 +13,16 @@
 
 .error {
     color: var(--color-red-700);
+}
+
+.center {
+    text-align: center;
+}
+
+.left {
+    text-align: left;
+}
+
+.right {
+    text-align: right;
 }

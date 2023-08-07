@@ -1,4 +1,19 @@
 {
   "profile page": "Профиль",
-  "edit": "Редактировать"
+  "edit": "Редактировать",
+  "Try reloading the page to fix the problem": "Попробуйте перезагрузить страницу, чтобы решить проблему",
+  "An error occured during profile loading": "При загрузке профиля произошла ошибка",
+  "Name": "Имя",
+  "Second name": "Фамилия",
+  "Save": "Сохранить",
+  "Cancel": "Отменить",
+  "Age": "Возраст",
+  "City": "Город",
+  "Username": "Имя пользователя",
+  "Avatar": "Фото профиля",
+  "Wrong age": "Некорректный возраст",
+  "Wrong country name": "Неверное название страны",
+  "Wrong user data": "Заполните обязательные поля",
+  "No data was found": "Данные не найдены",
+  "Server error": "Ошибка сервера"
 }

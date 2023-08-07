@@ -5,12 +5,14 @@ import { ButtonSpinner } from "../ButtonSpinner/ButtonSpinner";
 
 export enum AppButtonTheme {
     REGULAR = "regular",
+    CONFIRM = "confirm",
     ICON = "svg-with-span",
 }
 
 interface AppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string;
     theme?: AppButtonTheme;
+    isLoading?: boolean;
 }
 
 export const AppButton = memo((props: AppButtonProps) => {
@@ -19,6 +21,7 @@ export const AppButton = memo((props: AppButtonProps) => {
         theme = AppButtonTheme.REGULAR,
         children,
         disabled = false,
+        isLoading = false,
         ...otherProps
     } = props;
     return (
@@ -27,7 +30,7 @@ export const AppButton = memo((props: AppButtonProps) => {
             disabled={disabled}
             className={classNames(cls.AppButton, {}, [className, cls[theme]])}
         >
-            {!disabled ? children : <ButtonSpinner />}
+            {!isLoading ? children : <ButtonSpinner />}
         </button>
     );
 });

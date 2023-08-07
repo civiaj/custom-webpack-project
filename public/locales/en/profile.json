@@ -1,4 +1,19 @@
 {
   "profile page": "Profile",
-  "edit": "Edit"
+  "edit": "Edit",
+  "Try reloading the page to fix the problem": "Try reloading the page to fix the problem",
+  "An error occured during profile loading": "An error occured during profile loading",
+  "Name": "Name",
+  "Second name": "Second name",
+  "Save": "Save",
+  "Cancel": "Cancel",
+  "Age": "Age",
+  "City": "City",
+  "Username": "Username",
+  "Avatar": "Profile picture",
+  "Wrong age": "Wrong age",
+  "Wrong country name": "Wrong country name",
+  "Wrong user data": "Wrong user data",
+  "No data was found": "No data was found",
+  "Server error": "Server error"
 }

@@ -1,0 +1,16 @@
+.editing {
+    border-width: 2px;
+}
+
+.Profile {
+    display: flex;
+}
+
+.left {
+    flex-shrink: 0;
+}
+
+.right {
+    display: flex;
+    flex-direction: column;
+}

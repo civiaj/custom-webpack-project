@@ -1,13 +1,13 @@
 .AppButton {
     cursor: pointer;
     border: none;
+    border-radius: var(--border-radius-s);
 }
 
 .svg-with-span {
     padding: var(--p-s);
     background-color: var(--color-grey-0);
     color: var(--color-grey-700);
-    border-radius: var(--border-radius-s);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -30,7 +30,6 @@
 }
 
 .regular {
-    border-radius: var(--border-radius-s);
     background-color: var(--color-brand);
     color: var(--color-grey-50);
     padding: var(--px-vs) var(--py-m);
@@ -42,5 +41,20 @@
 
     &:hover {
         background-color: var(--color-brand-hover);
+    }
+}
+
+.confirm {
+    background-color: var(--color-green);
+    color: var(--color-grey-50);
+    padding: var(--px-vs) var(--py-m);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 8.55rem;
+
+    &:hover {
+        background-color: var(--color-green-hover);
     }
 }

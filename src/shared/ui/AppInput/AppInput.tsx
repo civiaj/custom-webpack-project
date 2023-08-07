@@ -3,6 +3,7 @@ import cls from "./AppInput.module.scss";
 import {
     ChangeEventHandler,
     InputHTMLAttributes,
+    KeyboardEventHandler,
     memo,
     useEffect,
     useRef,
@@ -17,6 +18,7 @@ interface AppInputProps extends InputProps {
     className?: string;
     value?: string;
     onChange?: (value: string) => void;
+    readOnly?: boolean;
 }
 
 export const AppInput = memo((props: AppInputProps) => {
@@ -26,6 +28,7 @@ export const AppInput = memo((props: AppInputProps) => {
         type = "text",
         autoFocus,
         onChange,
+        readOnly,
         ...otherProps
     } = props;
 
@@ -35,18 +38,31 @@ export const AppInput = memo((props: AppInputProps) => {
         onChange?.(e.target.value);
     };
 
+    const handleNumbers: KeyboardEventHandler<HTMLInputElement> = (e) => {
+        if (type !== "number") return;
+        if (e.key === "e") e.preventDefault();
+    };
+
     useEffect(() => {
         if (autoFocus) inputRef?.current?.focus();
     }, [autoFocus]);
 
     return (
-        <input
-            value={value}
-            onChange={handleChange}
-            ref={inputRef}
-            type={type}
-            className={classNames(cls.AppInput, {}, [className])}
-            {...otherProps}
-        ></input>
+        <>
+            <input
+                disabled={readOnly}
+                value={value}
+                onKeyDown={handleNumbers}
+                onChange={handleChange}
+                ref={inputRef}
+                type={type}
+                className={classNames(
+                    cls.AppInput,
+                    { [cls.readonly]: readOnly },
+                    [className]
+                )}
+                {...otherProps}
+            />
+        </>
     );
 });

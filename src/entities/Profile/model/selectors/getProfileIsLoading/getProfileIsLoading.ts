@@ -1,4 +1,4 @@
 import { RootState } from "app/providers/StoreProvider";
 
-export const getProfileLoading = (state: RootState) =>
+export const getProfileIsLoading = (state: RootState) =>
     state.profile?.isLoading || false;
