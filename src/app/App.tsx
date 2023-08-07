@@ -1,14 +1,27 @@
-import { StoreProvider } from "app/providers/StoreProvider";
-import { ThemeProvider } from "app/providers/ThemeProvider";
 import { AppRouter } from "app/providers/router";
+import { useEffect } from "react";
+import { Navbar } from "widgets/Navbar";
+import { Sidebar } from "widgets/Sidebar";
+import { useAppDispatch, useAppSelector } from "./providers/StoreProvider";
+import { getUserInited, userActions } from "entities/User";
 
 function App() {
+    const dispatch = useAppDispatch();
+    const inited = useAppSelector(getUserInited);
+
+    useEffect(() => {
+        dispatch(userActions.initAuth());
+    }, [dispatch]);
+
     return (
-        <StoreProvider>
-            <ThemeProvider>
-                <AppRouter />
-            </ThemeProvider>
-        </StoreProvider>
+        <div className="app">
+            <Navbar />
+            <div className="app-layout">
+                <Sidebar />
+
+                <main className="page">{inited && <AppRouter />}</main>
+            </div>
+        </div>
     );
 }
 export default App;

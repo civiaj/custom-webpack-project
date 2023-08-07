@@ -4,6 +4,9 @@ import App from "app/App";
 import "app/styles/index.scss";
 import "shared/config/i18n/i18n";
 import { ErrorBoundary } from "app/providers/ErrorBoundary";
+import { StoreProvider } from "app/providers/StoreProvider";
+import { BrowserRouter } from "react-router-dom";
+import { ThemeProvider } from "app/providers/ThemeProvider";
 
 const root = ReactDOM.createRoot(
     document.getElementById("root") as HTMLElement
@@ -12,7 +15,13 @@ const root = ReactDOM.createRoot(
 root.render(
     <React.StrictMode>
         <ErrorBoundary>
-            <App />
+            <BrowserRouter>
+                <StoreProvider>
+                    <ThemeProvider>
+                        <App />
+                    </ThemeProvider>
+                </StoreProvider>
+            </BrowserRouter>
         </ErrorBoundary>
     </React.StrictMode>
 );
