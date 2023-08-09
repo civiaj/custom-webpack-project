@@ -7,6 +7,7 @@ export enum AppButtonTheme {
     REGULAR = "regular",
     CONFIRM = "confirm",
     ICON = "svg-with-span",
+    COPY_CODE = "copy-code",
 }
 
 interface AppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {

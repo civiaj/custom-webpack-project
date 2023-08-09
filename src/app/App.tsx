@@ -18,8 +18,9 @@ function App() {
             <Navbar />
             <div className="app-layout">
                 <Sidebar />
-
-                <main className="page">{inited && <AppRouter />}</main>
+                <main className="wrapper">
+                    <div className="page">{inited && <AppRouter />}</div>
+                </main>
             </div>
         </div>
     );

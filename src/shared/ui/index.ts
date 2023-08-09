@@ -9,3 +9,5 @@ export { Message, MessageTheme, MessageAlign } from "./Message/Message";
 export { Avatar, AvatarTheme } from "./Avatar/Avatar";
 export { Select, SelectOption } from "./Select/Select";
 export { Box } from "./Box/Box";
+export { Skeleton } from "./Skeleton/Skeleton";
+export { Code } from "./Code/Code";

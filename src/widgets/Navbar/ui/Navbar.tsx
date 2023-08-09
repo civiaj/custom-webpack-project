@@ -3,7 +3,7 @@ import cls from "./Navbar.module.scss";
 import { memo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { AppButton, AppButtonTheme } from "shared/ui";
-import { LoginIcon } from "shared/assets/NavbarIcons/LoginIcon";
+import { LoginIcon, LogoutIcon } from "shared/assets/icons/LoginAndOutIcons";
 import { LoginModal } from "features/AuthByUsername";
 import { useAppDispatch, useAppSelector } from "app/providers/StoreProvider";
 import { getUserAuthData, userActions } from "entities/User";
@@ -28,7 +28,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
         return (
             <nav className={classNames(cls.Navbar, {}, [className])}>
                 <AppButton theme={AppButtonTheme.ICON} onClick={onLogout}>
-                    <LoginIcon />
+                    <LogoutIcon />
                     <span>{t("logout")}</span>
                 </AppButton>
             </nav>

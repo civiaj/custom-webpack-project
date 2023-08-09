@@ -1,8 +1,8 @@
 import { IconType } from "react-icons/lib";
-import { AboutIcon } from "shared/assets/SidebarIcons/AboutIcon";
-import { ArticlesIcon } from "shared/assets/SidebarIcons/ArticlesIcon";
-import { HomeIcon } from "shared/assets/SidebarIcons/HomeIcon";
-import { ProfileIcon } from "shared/assets/SidebarIcons/ProfileIcon";
+import { AboutPageIcon } from "shared/assets/icons/AboutPageIcon";
+import { ArticlesPageIcon } from "shared/assets/icons/ArticlesPageIcon";
+import { HomePageIcon } from "shared/assets/icons/HomePageIcon";
+import { ProfilePageIcon } from "shared/assets/icons/ProfilePageIcon";
 import { routePath } from "shared/config/routeConfig/routeConfig";
 
 export interface SidebarItemType {
@@ -15,24 +15,24 @@ export interface SidebarItemType {
 export const sidebarItemsList: SidebarItemType[] = [
     {
         path: routePath.main,
-        Icon: HomeIcon,
+        Icon: HomePageIcon,
         text: "mainSI",
     },
     {
         path: routePath.profile,
-        Icon: ProfileIcon,
+        Icon: ProfilePageIcon,
         text: "profileSI",
         authOnly: true,
     },
     {
         path: routePath.articles,
-        Icon: ArticlesIcon,
+        Icon: ArticlesPageIcon,
         text: "articleSI",
         authOnly: true,
     },
     {
         path: routePath.about,
-        Icon: AboutIcon,
+        Icon: AboutPageIcon,
         text: "aboutSI",
     },
 ];

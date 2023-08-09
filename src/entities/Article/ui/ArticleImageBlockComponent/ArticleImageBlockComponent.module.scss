@@ -1,0 +1,11 @@
+.image {
+    aspect-ratio: 16 / 9;
+    max-width: 100%;
+    background-color: var(--color-grey-100);
+
+    img {
+        object-fit: contain;
+        width: 100%;
+        height: 100%;
+    }
+}

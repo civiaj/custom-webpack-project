@@ -1,8 +1,8 @@
 import { classNames } from "shared/lib";
 import { memo } from "react";
 import { Theme, useTheme } from "app/providers/ThemeProvider";
-import { MoonIcon } from "shared/assets/themeSwitchIcons/MoonIcon";
-import { SunIcon } from "shared/assets/themeSwitchIcons/SunIcon";
+import { MoonIcon } from "shared/assets/icons/MoonIcon";
+import { SunIcon } from "shared/assets/icons/SunIcon";
 import { AppButton, AppButtonTheme } from "shared/ui";
 
 interface ThemeSwitcherProps {

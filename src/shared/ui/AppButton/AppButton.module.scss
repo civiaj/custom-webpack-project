@@ -2,6 +2,7 @@
     cursor: pointer;
     border: none;
     border-radius: var(--border-radius-s);
+    background: none;
 }
 
 .svg-with-span {
@@ -12,6 +13,7 @@
     align-items: center;
     justify-content: center;
     gap: var(--g-s);
+    transition: color 0.2s, background-color 0.2s;
 
     span {
         text-transform: uppercase;
@@ -57,4 +59,8 @@
     &:hover {
         background-color: var(--color-green-hover);
     }
+}
+
+.copy-code {
+    color: inherit;
 }

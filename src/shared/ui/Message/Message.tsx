@@ -15,6 +15,7 @@ export enum MessageAlign {
 interface MessageProps {
     className?: string;
     text?: string;
+
     title?: string;
     theme?: MessageTheme;
     align?: MessageAlign;

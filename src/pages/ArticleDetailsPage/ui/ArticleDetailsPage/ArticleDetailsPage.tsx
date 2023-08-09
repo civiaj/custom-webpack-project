@@ -1,19 +1,21 @@
 import { useTranslation } from "react-i18next";
-import { classNames } from "shared/lib";
-import cls from "./ArticleDetailsPage.module.scss";
+
 import { Message } from "shared/ui";
+import { ArticleDetails } from "entities/Article";
+import { useParams } from "react-router-dom";
 
-interface ArticlesPageProps {
-    className?: string;
-}
-
-const ArticleDetailsPage = (props: ArticlesPageProps) => {
-    const { className } = props;
+const ArticleDetailsPage = () => {
     const { t } = useTranslation("article");
+    const { id: articleId } = useParams<{ id: string }>();
+
+    if (!articleId) {
+        return <Message text={t("Article not found")} />;
+    }
+
     return (
-        <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-            <Message title={t("Article details")} />
-        </div>
+        <>
+            <ArticleDetails id={articleId} />
+        </>
     );
 };
 

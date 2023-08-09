@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { AppButton, AppButtonTheme } from "./AppButton";
 import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator";
 import { Theme } from "app/providers/ThemeProvider";
-import { AboutIcon } from "shared/assets/SidebarIcons/AboutIcon";
+import { AboutPageIcon } from "shared/assets/icons/AboutPageIcon";
 
 const meta = {
     title: "shared/AppButton",
@@ -23,7 +23,7 @@ export const IconButtonLight: Story = {
     args: {
         children: (
             <>
-                <AboutIcon />
+                <AboutPageIcon />
             </>
         ),
         theme: AppButtonTheme.ICON,
@@ -34,7 +34,7 @@ export const IconButtonDark: Story = {
     args: {
         children: (
             <>
-                <AboutIcon />
+                <AboutPageIcon />
             </>
         ),
         theme: AppButtonTheme.ICON,

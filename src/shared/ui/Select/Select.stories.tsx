@@ -18,7 +18,7 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const LightThemeSelect: Story = {
+export const SelectL: Story = {
     args: {
         label: "Select a value",
         id: "selector",
@@ -30,7 +30,7 @@ export const LightThemeSelect: Story = {
     },
 };
 
-export const DarkThemeSelect: Story = {
+export const SelectD: Story = {
     args: {
         label: "Select a value",
         id: "selector",

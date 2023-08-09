@@ -4,7 +4,7 @@ import { memo, useState } from "react";
 import { ThemeSwitcher } from "widgets/ThemeSwitcher";
 import { LangSwitcher } from "widgets/LangSwitcher";
 import { AppButton, AppButtonTheme } from "shared/ui";
-import { ToggleLeft, ToggleRight } from "shared/assets/SidebarIcons/ToggleSidebar";
+import { ToggleLeft, ToggleRight } from "shared/assets/icons/ToggleSidebar";
 import { sidebarItemsList } from "widgets/Sidebar/model/items";
 import { SidebarItem } from "../SidebarItem/SidebarItem";
 
@@ -22,7 +22,9 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
     return (
         <div
             data-testid="sidebar"
-            className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}
+            className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [
+                className,
+            ])}
         >
             <div className={cls.navigation}>
                 <AppButton

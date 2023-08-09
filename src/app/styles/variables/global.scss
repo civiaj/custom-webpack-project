@@ -27,13 +27,15 @@
     --m-s: 1rem 1rem;
     --m-m: 2rem 2rem;
     --m-l: 3rem 3rem;
+    --mx-es: 0.5rem;
     --mx-s: 1rem;
     --mx-m: 2rem;
     --mx-l: 3rem;
+    --my-es: 0.5rem;
     --my-s: 1rem;
     --my-m: 2rem;
     --my-l: 3rem;
-    --g-vs: 0.4rem;
+    --g-es: 0.4rem;
     --g-s: 1rem;
     --g-m: 2rem;
     --g-l: 3rem;
@@ -44,7 +46,8 @@
     --z-index-modal: 1000;
     --overlay-bg: rgb(0 0 0 / 0.4);
     --overlay-bg-start: rgb(0 0 0 / 0);
-    --color-brand: #bb86fc;
-    --color-brand-hover: #a861ff;
+    --color-brand: #2563eb;
+    --color-brand-hover: #3b82f6;
     --page-content-width-normal: 94rem;
+    --scrollbar-width: 0.8rem;
 }

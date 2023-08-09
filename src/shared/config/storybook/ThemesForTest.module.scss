@@ -29,6 +29,8 @@
     --shadow-lg: 0 2.4rem 3.2rem rgb(0 0 0 / 0.4);
     --image-grayscale: 10%;
     --image-opacity: 90%;
+    --skeleton-color: var(--color-grey-300);
+    --skeleton-shadow: var(--color-grey-50);
 }
 
 .app_light_theme {
@@ -62,4 +64,6 @@
     --shadow-lg: 0 2.4rem 3.2rem rgb(0 0 0 / 0.12);
     --image-grayscale: 0;
     --image-opacity: 100%;
+    --skeleton-color: var(--color-grey-300);
+    --skeleton-shadow: var(--color-grey-50);
 }

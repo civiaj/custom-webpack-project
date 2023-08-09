@@ -1,0 +1,26 @@
+.ArticleDetails {
+    display: flex;
+    flex-direction: column;
+    gap: var(--g-s);
+}
+
+.articleInfo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: var(--g-m);
+    margin-top: calc(var(--mx-es) * -1);
+}
+
+.articleInfoItem {
+    display: flex;
+    align-items: center;
+    font: var(--font-s);
+    font-weight: 700;
+
+    svg {
+        margin-right: var(--my-es);
+        width: 1.7rem;
+        height: 1.7rem;
+    }
+}
