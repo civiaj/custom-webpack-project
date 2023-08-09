@@ -10,7 +10,7 @@ import {
     profileReducer,
 } from "entities/Profile";
 import { getProfileFormData } from "entities/Profile/model/selectors/getProfileFormData/getProfileFormData";
-import { useCallback, useEffect } from "react";
+import { useCallback } from "react";
 import {
     DynamicReducerLoader,
     ReducerList,
@@ -20,6 +20,7 @@ import { Currency } from "entities/Currency";
 import { Country } from "entities/Country";
 import { Box, Message } from "shared/ui";
 import { useTranslation } from "react-i18next";
+import { useInitialEffect } from "shared/lib";
 
 const profileReducers: ReducerList = {
     profile: profileReducer,
@@ -97,9 +98,9 @@ const ProfilePage = () => {
         [dispatch]
     );
 
-    useEffect(() => {
-        if (__PROJECT__ !== "storybook") dispatch(fetchProfileData());
-    }, [dispatch]);
+    useInitialEffect(() => {
+        dispatch(fetchProfileData());
+    });
 
     return (
         <DynamicReducerLoader reducers={profileReducers}>

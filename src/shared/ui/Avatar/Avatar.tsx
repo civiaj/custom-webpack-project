@@ -11,7 +11,7 @@ export enum AvatarTheme {
 interface AvatarProps {
     className?: string;
     src: string | undefined;
-    alt: string | undefined;
+    alt?: string | undefined;
     theme?: AvatarTheme;
 }
 

@@ -1,26 +1,26 @@
-import { classNames } from "shared/lib";
-import cls from "./ArticleDetails.module.scss";
+import { useAppDispatch, useAppSelector } from "app/providers/StoreProvider";
+import { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
+import { CalendarIcon } from "shared/assets/icons/CalendarIcon";
+import { EyeIcon } from "shared/assets/icons/EyeIcon";
+import { classNames, useInitialEffect } from "shared/lib";
 import {
     DynamicReducerLoader,
     ReducerList,
 } from "shared/lib/components/DynamicReducerLoader/DynamicReducerLoader";
-import { articleDetailsReducer } from "../../model/slice/articleSlice";
-import { memo, useCallback, useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "app/providers/StoreProvider";
-import { fetchArticleById } from "../../model/services/fetchArticleById";
+import { Message, MessageAlign, MessageTheme, Skeleton } from "shared/ui";
 import {
     getArticleDetailsData,
     getArticleDetailsError,
     getArticleDetailsIsLoading,
 } from "../../model/selectors/getArticleDetails/getArticleDetails";
-import { Box, Message, MessageAlign, MessageTheme, Skeleton } from "shared/ui";
-import { EyeIcon } from "shared/assets/icons/EyeIcon";
-import { CalendarIcon } from "shared/assets/icons/CalendarIcon";
+import { fetchArticleById } from "../../model/services/fetchArticleById";
+import { articleDetailsReducer } from "../../model/slice/articleSlice";
 import { ArticleBlock, ArticleBlockType } from "../../model/types/article";
 import { ArticleCodeBlockComponent } from "../ArticleCodeBlockComponent/ArticleCodeBlockComponent";
 import { ArticleImageBlockComponent } from "../ArticleImageBlockComponent/ArticleImageBlockComponent";
 import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
+import cls from "./ArticleDetails.module.scss";
 
 interface ArticleDetailsProps {
     className?: string;
@@ -62,11 +62,9 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
         }
     }, []);
 
-    useEffect(() => {
-        if (__PROJECT__ !== "storybook") {
-            dispatch(fetchArticleById(id));
-        }
-    }, [dispatch, id]);
+    useInitialEffect(() => {
+        dispatch(fetchArticleById(id));
+    });
 
     let content;
 
@@ -116,13 +114,9 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 
     return (
         <DynamicReducerLoader reducers={reducers} removeAfterUnmount={true}>
-            <Box>
-                <div
-                    className={classNames(cls.ArticleDetails, {}, [className])}
-                >
-                    {content}
-                </div>
-            </Box>
+            <div className={classNames(cls.ArticleDetails, {}, [className])}>
+                {content}
+            </div>
         </DynamicReducerLoader>
     );
 });

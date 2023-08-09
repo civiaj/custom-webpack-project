@@ -13,6 +13,7 @@ import { LoginSchema } from "features/AuthByUsername";
 import { createReduxStore } from "./store";
 import { NavigateOptions, To } from "react-router-dom";
 import { ArticleDetailsSchema } from "entities/Article";
+import { ArticleDetailsCommentsSchema } from "pages/ArticleDetailsPage";
 
 export type RootState = {
     counter: CounterSchema;
@@ -21,6 +22,7 @@ export type RootState = {
     login?: LoginSchema;
     profile?: ProfileSchema;
     articleDetails?: ArticleDetailsSchema;
+    articleDetailsComments?: ArticleDetailsCommentsSchema;
 };
 
 export type AppStore = ReturnType<typeof createReduxStore>;

@@ -105,7 +105,7 @@
             "id": "2",
             "text": "some comment 2",
             "articleId": "1",
-            "userId": "1"
+            "userId": "2"
         },
         {
             "id": "3",
@@ -119,13 +119,15 @@
             "id": "1",
             "username": "admin",
             "password": "123",
-            "role": "ADMIN"
+            "role": "ADMIN",
+            "avatar": "https://images.unsplash.com/flagged/photo-1566127992631-137a642a90f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
         },
         {
             "id": "2",
             "username": "user",
             "password": "123",
-            "role": "USER"
+            "role": "USER",
+            "avatar": "https://media.npr.org/assets/img/2017/09/12/macaca_nigra_self-portrait-3e0070aa19a7fe36e802253048411a38f14a79f8-s1100-c50.jpg"
         }
     ]
 }
