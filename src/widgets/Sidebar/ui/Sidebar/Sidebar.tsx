@@ -5,8 +5,9 @@ import { ThemeSwitcher } from "widgets/ThemeSwitcher";
 import { LangSwitcher } from "widgets/LangSwitcher";
 import { AppButton, AppButtonTheme } from "shared/ui";
 import { ToggleLeft, ToggleRight } from "shared/assets/icons/ToggleSidebar";
-import { sidebarItemsList } from "widgets/Sidebar/model/items";
 import { SidebarItem } from "../SidebarItem/SidebarItem";
+import { useAppSelector } from "app/providers/StoreProvider";
+import { getSidebarItems } from "widgets/Sidebar/model/selectors/getSidebarItems";
 
 interface SidebarProps {
     className?: string;
@@ -14,6 +15,7 @@ interface SidebarProps {
 
 export const Sidebar = memo(({ className }: SidebarProps) => {
     const [collapsed, setCollapsed] = useState(false);
+    const sidebarItemsList = useAppSelector(getSidebarItems);
 
     const onToggle = () => {
         setCollapsed((p) => !p);
