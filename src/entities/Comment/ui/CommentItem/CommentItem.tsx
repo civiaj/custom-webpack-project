@@ -1,11 +1,12 @@
 import { classNames } from "shared/lib";
 import cls from "./CommentItem.module.scss";
 import { Comment } from "../../model/types/comment";
-import { Avatar, AvatarTheme, Skeleton } from "shared/ui";
+import { AppLink, Avatar, AvatarTheme, Skeleton } from "shared/ui";
+import { routePath } from "shared/config/routeConfig/routeConfig";
 
 interface CommentItemProps {
     className?: string;
-    comment: Comment;
+    comment?: Comment;
     isLoading: boolean;
 }
 
@@ -20,9 +21,11 @@ export const CommentItem = (props: CommentItemProps) => {
         );
     }
 
+    if (!comment) return null;
+
     return (
         <div className={classNames(cls.CommentItem, {}, [className])}>
-            <div>
+            <AppLink to={`${routePath.profile}${comment.user.id}`}>
                 {comment.user.avatar && (
                     <Avatar
                         theme={AvatarTheme.SIZE_S}
@@ -30,7 +33,7 @@ export const CommentItem = (props: CommentItemProps) => {
                     />
                 )}
                 <p>{comment.user.username}</p>
-            </div>
+            </AppLink>
             <p>{comment.text}</p>
         </div>
     );

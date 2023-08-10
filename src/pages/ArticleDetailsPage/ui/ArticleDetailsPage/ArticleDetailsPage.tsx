@@ -1,27 +1,27 @@
 import { useTranslation } from "react-i18next";
 
-import { Box, Message } from "shared/ui";
+import { useAppDispatch, useAppSelector } from "app/providers/StoreProvider";
 import { ArticleDetails } from "entities/Article";
-import { useParams } from "react-router-dom";
 import { CommentList } from "entities/Comment";
+import { fetchCommentsByArticleId } from "pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
+import { useParams } from "react-router-dom";
+import { useInitialEffect } from "shared/lib";
 import {
     DynamicReducerLoader,
     ReducerList,
 } from "shared/lib/components/DynamicReducerLoader/DynamicReducerLoader";
+import { Box, Message, MessageAlign } from "shared/ui";
+import { getArticleDetailsCommentsIsLoading } from "../../model/selectors/commentsSelectors";
 import {
-    ArticleDetailsCommentsSliceReducer,
+    ArticleDetailsCommentsReducer,
     getArticleDetailsComments,
-} from "../../model/slice/ArticleDetailsCommentsSlice";
-import { useAppDispatch, useAppSelector } from "app/providers/StoreProvider";
-import {
-    getArticleDetailsCommentsError,
-    getArticleDetailsCommentsIsLoading,
-} from "../../model/selectors/commentsSelectors";
-import { useInitialEffect } from "shared/lib";
-import { fetchCommentsByArticleId } from "pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId";
+} from "../../model/slice/articleDetailsCommentsSlice";
+import { AddCommentForm } from "features/AddCommentForm";
+import { useCallback } from "react";
+import { addCommentForArticle } from "pages/ArticleDetailsPage/model/services/addCommentForArticle/addCommentForArticle";
 
 const reducers: ReducerList = {
-    articleDetailsComments: ArticleDetailsCommentsSliceReducer,
+    articleDetailsComments: ArticleDetailsCommentsReducer,
 };
 
 const ArticleDetailsPage = () => {
@@ -33,14 +33,29 @@ const ArticleDetailsPage = () => {
 
     useInitialEffect(() => dispatch(fetchCommentsByArticleId(articleId)));
 
+    const onSendComment = useCallback(
+        (value: string) => {
+            dispatch(addCommentForArticle(value));
+        },
+        [dispatch]
+    );
+
     if (!articleId) {
-        return <Message text={t("Article not found")} />;
+        return (
+            <Message
+                text={t("Article not found")}
+                align={MessageAlign.CENTER}
+            />
+        );
     }
 
     return (
         <DynamicReducerLoader reducers={reducers} removeAfterUnmount>
             <Box>
                 <ArticleDetails id={articleId} />
+            </Box>
+            <Box>
+                <AddCommentForm onSendComment={onSendComment} />
             </Box>
             <Box>
                 <CommentList isLoading={isLoading} comments={comments} />

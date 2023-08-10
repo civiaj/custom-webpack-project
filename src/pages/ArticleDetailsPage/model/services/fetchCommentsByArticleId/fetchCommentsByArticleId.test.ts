@@ -1,21 +1,23 @@
-import { fetchProfileData } from "./fetchProfileData";
+import { fetchCommentsByArticleId } from "./fetchCommentsByArticleId";
 import { TestAsyncThunk } from "shared/lib/test/TestAsyncThunk/TestAsyncThunk";
-import { Currency } from "entities/Currency";
-import { Country } from "entities/Country";
 
-describe("fetchProfileData.test", () => {
+describe("fetchCommentsByArticleId.test", () => {
     test("success", async () => {
-        const data = {
-            username: "admin",
-            age: 22,
-            city: "Cheboksary",
-            currency: Currency.EUR,
-            country: Country.Armenia,
-            firstName: "FirstName",
-            secondName: "SecondName",
-        };
-
-        const thunk = new TestAsyncThunk(fetchProfileData);
+        const data = [
+            {
+                id: "1",
+                text: "some comment",
+                articleId: "1",
+                userId: "1",
+            },
+            {
+                id: "2",
+                text: "some comment 2",
+                articleId: "1",
+                userId: "2",
+            },
+        ];
+        const thunk = new TestAsyncThunk(fetchCommentsByArticleId);
         thunk.api.get.mockReturnValue(Promise.resolve({ data }));
         const result = await thunk.callThunk("1");
         expect(thunk.api.get).toHaveBeenCalled();
@@ -24,7 +26,7 @@ describe("fetchProfileData.test", () => {
     });
 
     test("error", async () => {
-        const thunk = new TestAsyncThunk(fetchProfileData);
+        const thunk = new TestAsyncThunk(fetchCommentsByArticleId);
         thunk.api.get.mockReturnValue(Promise.resolve({ status: 403 }));
         const result = await thunk.callThunk("1");
         expect(thunk.api.get).toHaveBeenCalled();

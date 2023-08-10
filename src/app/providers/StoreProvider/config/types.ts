@@ -14,6 +14,7 @@ import { createReduxStore } from "./store";
 import { NavigateOptions, To } from "react-router-dom";
 import { ArticleDetailsSchema } from "entities/Article";
 import { ArticleDetailsCommentsSchema } from "pages/ArticleDetailsPage";
+import { addCommentFormSchema } from "features/AddCommentForm";
 
 export type RootState = {
     counter: CounterSchema;
@@ -23,6 +24,7 @@ export type RootState = {
     profile?: ProfileSchema;
     articleDetails?: ArticleDetailsSchema;
     articleDetailsComments?: ArticleDetailsCommentsSchema;
+    addCommentForm?: addCommentFormSchema;
 };
 
 export type AppStore = ReturnType<typeof createReduxStore>;

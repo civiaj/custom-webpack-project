@@ -15,24 +15,26 @@ import {
     DynamicReducerLoader,
     ReducerList,
 } from "shared/lib/components/DynamicReducerLoader/DynamicReducerLoader";
-import { ProfilePageHeader } from "./ProfilePageHeader/ProfilePageHeader";
+import { ProfilePageHeader } from "../ProfilePageHeader/ProfilePageHeader";
 import { Currency } from "entities/Currency";
 import { Country } from "entities/Country";
 import { Box, Message } from "shared/ui";
 import { useTranslation } from "react-i18next";
 import { useInitialEffect } from "shared/lib";
+import { useParams } from "react-router-dom";
 
 const profileReducers: ReducerList = {
     profile: profileReducer,
 };
 
 const ProfilePage = () => {
+    const { t } = useTranslation("profile");
     const dispatch = useAppDispatch();
     const profile = useAppSelector(getProfileFormData);
     const error = useAppSelector(getProfileError);
     const isLoading = useAppSelector(getProfileIsLoading);
     const validateErrors = useAppSelector(getProfileErrors);
-    const { t } = useTranslation("profile");
+    const { id: profileId } = useParams<{ id: string }>();
 
     const validateErrorsTranslations: Record<ValidateProfileErrors, string> = {
         [ValidateProfileErrors.INCORRECT_AGE]: t("Wrong age"),
@@ -99,7 +101,7 @@ const ProfilePage = () => {
     );
 
     useInitialEffect(() => {
-        dispatch(fetchProfileData());
+        if (profileId) dispatch(fetchProfileData(profileId));
     });
 
     return (

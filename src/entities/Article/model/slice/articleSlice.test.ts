@@ -1,20 +1,23 @@
-// import { counterActions, counterReducer } from "./articleSlice";
-// import { CounterSchema } from "../types/article";
+import { articleDetailsReducer } from "./articleSlice";
+import { ArticleDetailsSchema } from "../types/ArticleDetailsSchema";
+import { fetchArticleById } from "../services/fetchArticleById";
 
-// describe("counterSlice.test", () => {
-//     test("increment", () => {
-//         const state: DeepPartial<CounterSchema> = { value: 10 };
-//         expect(
-//             counterReducer(state as CounterSchema, counterActions.increment())
-//         ).toEqual({ value: 11 });
-//     });
-
-//     test("decrement", () => {
-//         const state: DeepPartial<CounterSchema> = { value: 10 };
-//         expect(
-//             counterReducer(state as CounterSchema, counterActions.decrement())
-//         ).toEqual({
-//             value: 9,
-//         });
-//     });
-// });
+describe("ArticleDetailsSchema.test", () => {
+    test("extraReducer fetchArticleById fulfilled", () => {
+        const data = {
+            id: "1",
+            title: "Test",
+            views: 100,
+        };
+        const state: DeepPartial<ArticleDetailsSchema> = {
+            data: undefined,
+            isLoading: true,
+        };
+        expect(
+            articleDetailsReducer(
+                state as ArticleDetailsSchema,
+                fetchArticleById.fulfilled(data, "1", "")
+            )
+        ).toEqual({ data, isLoading: false });
+    });
+});

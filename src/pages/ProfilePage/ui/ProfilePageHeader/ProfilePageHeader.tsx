@@ -9,8 +9,10 @@ import {
     getProfileReadOnly,
     profileActions,
     updateProfileData,
+    getProfileData,
 } from "entities/Profile";
 import { useCallback } from "react";
+import { getUserAuthData } from "entities/User";
 
 interface ProfilePageHeaderProps {
     clasName?: string;
@@ -24,6 +26,9 @@ export const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
     const isLoading = useAppSelector(getProfileIsLoading);
     const dispatch = useAppDispatch();
     const disabled = isLoading || isUpdating;
+    const authData = useAppSelector(getUserAuthData);
+    const profileData = useAppSelector(getProfileData);
+    const canEdit = authData?.id === profileData?.id;
 
     const onEdit = useCallback(
         () => dispatch(profileActions.setReadOnly(false)),
@@ -42,24 +47,28 @@ export const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
     return (
         <div className={classNames(cls.ProfilePageHeader, {}, [clasName])}>
             <Message title={t("profile page")} />
-            {readOnly ? (
-                <AppButton disabled={disabled} onClick={onEdit}>
-                    {t("edit")}
-                </AppButton>
-            ) : (
-                <div className={cls.buttons}>
-                    <AppButton
-                        isLoading={isUpdating}
-                        disabled={disabled}
-                        theme={AppButtonTheme.CONFIRM}
-                        onClick={onSave}
-                    >
-                        {t("Save")}
-                    </AppButton>
-                    <AppButton disabled={disabled} onClick={onCancel}>
-                        {t("Cancel")}
-                    </AppButton>
-                </div>
+            {canEdit && (
+                <>
+                    {readOnly ? (
+                        <AppButton disabled={disabled} onClick={onEdit}>
+                            {t("edit")}
+                        </AppButton>
+                    ) : (
+                        <div className={cls.buttons}>
+                            <AppButton
+                                isLoading={isUpdating}
+                                disabled={disabled}
+                                theme={AppButtonTheme.CONFIRM}
+                                onClick={onSave}
+                            >
+                                {t("Save")}
+                            </AppButton>
+                            <AppButton disabled={disabled} onClick={onCancel}>
+                                {t("Cancel")}
+                            </AppButton>
+                        </div>
+                    )}
+                </>
             )}
         </div>
     );
