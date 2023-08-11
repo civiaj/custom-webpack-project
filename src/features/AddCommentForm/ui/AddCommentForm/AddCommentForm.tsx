@@ -1,21 +1,21 @@
-import { classNames } from "shared/lib";
-import cls from "./AddCommentForm.module.scss";
-import { useTranslation } from "react-i18next";
-import { AppButton, AppInput } from "shared/ui";
 import { useAppDispatch, useAppSelector } from "app/providers/StoreProvider";
-import {
-    getAddCommentFormIsLoading,
-    getAddCommentFormText,
-} from "../../model/selectors/addCommentFormSelectors";
 import { useCallback } from "react";
-import {
-    addCommentFormActions,
-    addCommentFormReducer,
-} from "../../model/slice/addCommentFormSlice";
+import { useTranslation } from "react-i18next";
+import { classNames } from "shared/lib";
 import {
     DynamicReducerLoader,
     ReducerList,
 } from "shared/lib/components/DynamicReducerLoader/DynamicReducerLoader";
+import { AppButton, AppInput, Text } from "shared/ui";
+import {
+    getAddCommentFormIsLoading,
+    getAddCommentFormText,
+} from "../../model/selectors/addCommentFormSelectors";
+import {
+    addCommentFormActions,
+    addCommentFormReducer,
+} from "../../model/slice/addCommentFormSlice";
+import cls from "./AddCommentForm.module.scss";
 
 export interface AddCommentFormProps {
     className?: string;
@@ -49,6 +49,7 @@ const AddCommentForm = (props: AddCommentFormProps) => {
     return (
         <DynamicReducerLoader reducers={reducers}>
             <div className={classNames(cls.AddCommentForm, {}, [className])}>
+                <Text title={t("Leave a comment")} />
                 <AppInput
                     placeholder={t("Enter comment text")}
                     value={text}

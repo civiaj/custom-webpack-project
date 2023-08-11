@@ -5,9 +5,9 @@ import {
     AppInput,
     Avatar,
     Loader,
-    Message,
-    MessageAlign,
-    MessageTheme,
+    Text,
+    TextAlign,
+    TextTheme,
 } from "shared/ui";
 import cls from "./Profile.module.scss";
 import { useAppSelector } from "app/providers/StoreProvider";
@@ -58,9 +58,9 @@ export const ProfileCard = (props: ProfileCardProps) => {
     if (error)
         return (
             <div className={classNames(cls.Profile, {}, [className])}>
-                <Message
-                    align={MessageAlign.CENTER}
-                    theme={MessageTheme.ERROR}
+                <Text
+                    align={TextAlign.CENTER}
+                    theme={TextTheme.ERROR}
                     title={t("An error occured during profile loading")}
                     text={t("Try reloading the page to fix the problem")}
                 />

@@ -1,7 +1,7 @@
 import { classNames } from "shared/lib";
 import cls from "./CommentList.module.scss";
 import { Comment } from "../../model/types/comment";
-import { Message, MessageAlign } from "shared/ui";
+import { Text, TextAlign } from "shared/ui";
 import { useTranslation } from "react-i18next";
 import { CommentItem } from "../CommentItem/CommentItem";
 
@@ -36,9 +36,9 @@ export const CommentList = (props: CommentListProps) => {
                     />
                 ))
             ) : (
-                <Message
+                <Text
                     text={t("Комментарии отсутствуют")}
-                    align={MessageAlign.CENTER}
+                    align={TextAlign.CENTER}
                 />
             )}
         </div>

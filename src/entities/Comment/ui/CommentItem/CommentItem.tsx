@@ -25,11 +25,15 @@ export const CommentItem = (props: CommentItemProps) => {
 
     return (
         <div className={classNames(cls.CommentItem, {}, [className])}>
-            <AppLink to={`${routePath.profile}${comment.user.id}`}>
+            <AppLink
+                className={cls.link}
+                to={`${routePath.profile}${comment.user.id}`}
+            >
                 {comment.user.avatar && (
                     <Avatar
                         theme={AvatarTheme.SIZE_S}
                         src={comment.user.avatar}
+                        alt={comment.user.username}
                     />
                 )}
                 <p>{comment.user.username}</p>

@@ -1,31 +1,31 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Message, MessageTheme } from "./Message";
+import { Text, TextTheme } from "./Text";
 import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator";
 import { Theme } from "app/providers/ThemeProvider";
 
 const meta = {
-    title: "shared/Message",
-    component: Message,
+    title: "shared/Text",
+    component: Text,
     parameters: {
         layout: "fullscreen",
     },
     tags: ["autodocs"],
     argTypes: {},
-} satisfies Meta<typeof Message>;
+} satisfies Meta<typeof Text>;
 
 export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const MessageL: Story = {
+export const TextL: Story = {
     args: {
         text: "text",
         title: "title",
     },
 };
 
-export const MessageD: Story = {
+export const TextD: Story = {
     args: {
         text: "text",
         title: "title",
@@ -33,17 +33,17 @@ export const MessageD: Story = {
     decorators: [ThemeDecorator(Theme.DARK)],
 };
 
-export const MessageErrorL: Story = {
+export const TextErrorL: Story = {
     args: {
-        theme: MessageTheme.ERROR,
+        theme: TextTheme.ERROR,
         text: "text",
         title: "title",
     },
 };
 
-export const MessageErrorD: Story = {
+export const TextErrorD: Story = {
     args: {
-        theme: MessageTheme.ERROR,
+        theme: TextTheme.ERROR,
         text: "text",
         title: "title",
     },

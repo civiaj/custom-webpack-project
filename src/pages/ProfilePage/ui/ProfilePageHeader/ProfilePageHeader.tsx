@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { classNames } from "shared/lib";
-import { AppButton, AppButtonTheme, Message } from "shared/ui";
+import { AppButton, AppButtonTheme, Text } from "shared/ui";
 import cls from "./ProfilePageHeader.module.scss";
 import { useAppDispatch, useAppSelector } from "app/providers/StoreProvider";
 import {
@@ -46,7 +46,7 @@ export const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
 
     return (
         <div className={classNames(cls.ProfilePageHeader, {}, [clasName])}>
-            <Message title={t("profile page")} />
+            <Text title={t("profile page")} />
             {canEdit && (
                 <>
                     {readOnly ? (

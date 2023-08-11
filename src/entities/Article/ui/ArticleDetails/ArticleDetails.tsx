@@ -8,7 +8,7 @@ import {
     DynamicReducerLoader,
     ReducerList,
 } from "shared/lib/components/DynamicReducerLoader/DynamicReducerLoader";
-import { Message, MessageAlign, MessageTheme, Skeleton } from "shared/ui";
+import { Text, TextAlign, TextTheme, Skeleton } from "shared/ui";
 import {
     getArticleDetailsData,
     getArticleDetailsError,
@@ -80,16 +80,16 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
         );
     } else if (error) {
         content = (
-            <Message
-                theme={MessageTheme.ERROR}
-                align={MessageAlign.CENTER}
+            <Text
+                theme={TextTheme.ERROR}
+                align={TextAlign.CENTER}
                 text={t("An error occurred while loading the article")}
             />
         );
     } else {
         content = (
             <>
-                <Message title={article?.title} />
+                <Text title={article?.title} />
                 <div className={cls.articleInfo}>
                     <div className={cls.articleInfoItem}>
                         <EyeIcon />

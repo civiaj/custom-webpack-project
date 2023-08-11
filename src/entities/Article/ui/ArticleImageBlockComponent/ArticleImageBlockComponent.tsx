@@ -3,7 +3,7 @@ import cls from "./ArticleImageBlockComponent.module.scss";
 
 import { memo } from "react";
 import { ArticleImageBlock } from "entities/Article/model/types/article";
-import { Message } from "shared/ui";
+import { Text } from "shared/ui";
 
 interface ArticleImageBlockComponentProps {
     className?: string;
@@ -19,7 +19,7 @@ export const ArticleImageBlockComponent = memo(
                 <div className={classNames(cls.image, {}, [className])}>
                     <img src={block.src} alt={block.title} />
                 </div>
-                {block.title && <Message text={block.title} />}
+                {block.title && <Text text={block.title} />}
             </>
         );
     }

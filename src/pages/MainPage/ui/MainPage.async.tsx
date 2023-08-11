@@ -1,4 +1,5 @@
 import { lazy } from "react";
+import { PAGE_LOAD_TIME } from "shared/const/const";
 
 export const MainPageAsync = lazy(
     () =>
@@ -6,6 +7,6 @@ export const MainPageAsync = lazy(
             setTimeout(() => {
                 // @ts-ignore
                 res(import("./MainPage"));
-            }, 1000)
+            }, PAGE_LOAD_TIME)
         )
 );

@@ -1,14 +1,10 @@
 import { articleDetailsReducer } from "./articleSlice";
 import { ArticleDetailsSchema } from "../types/ArticleDetailsSchema";
 import { fetchArticleById } from "../services/fetchArticleById";
+import { ArticleBlockType, ArticleType } from "../types/article";
 
-describe("ArticleDetailsSchema.test", () => {
+describe("articleSlice.test", () => {
     test("extraReducer fetchArticleById fulfilled", () => {
-        const data = {
-            id: "1",
-            title: "Test",
-            views: 100,
-        };
         const state: DeepPartial<ArticleDetailsSchema> = {
             data: undefined,
             isLoading: true,
@@ -16,8 +12,47 @@ describe("ArticleDetailsSchema.test", () => {
         expect(
             articleDetailsReducer(
                 state as ArticleDetailsSchema,
-                fetchArticleById.fulfilled(data, "1", "")
+                fetchArticleById.fulfilled(
+                    {
+                        blocks: [
+                            {
+                                type: ArticleBlockType.IMAGE,
+                                id: "1",
+                                src: "",
+                            },
+                        ],
+                        createdAt: "",
+                        id: "",
+                        img: "",
+                        subtitle: "",
+                        title: "",
+                        type: [ArticleType.IT],
+                        user: { id: "1", username: "", avatar: "" },
+                        views: 1,
+                    },
+                    "1",
+                    ""
+                )
             )
-        ).toEqual({ data, isLoading: false });
+        ).toEqual({
+            data: {
+                blocks: [
+                    {
+                        type: ArticleBlockType.IMAGE,
+                        id: "1",
+                        src: "",
+                    },
+                ],
+                createdAt: "",
+                id: "",
+                img: "",
+                subtitle: "",
+                title: "",
+                type: [ArticleType.IT],
+                user: { id: "1", username: "", avatar: "" },
+                views: 1,
+            },
+            isLoading: false,
+        });
     });
 });

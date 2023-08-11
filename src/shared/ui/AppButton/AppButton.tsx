@@ -7,7 +7,6 @@ export enum AppButtonTheme {
     REGULAR = "regular",
     CONFIRM = "confirm",
     ICON = "svg-with-span",
-    COPY_CODE = "copy-code",
 }
 
 interface AppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -29,7 +28,7 @@ export const AppButton = memo((props: AppButtonProps) => {
         <button
             {...otherProps}
             disabled={disabled}
-            className={classNames(cls.AppButton, {}, [className, cls[theme]])}
+            className={classNames(cls.AppButton, {}, [cls[theme], className])}
         >
             {!isLoading ? children : <ButtonSpinner />}
         </button>

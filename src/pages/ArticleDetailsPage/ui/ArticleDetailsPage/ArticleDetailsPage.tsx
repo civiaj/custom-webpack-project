@@ -10,7 +10,7 @@ import {
     DynamicReducerLoader,
     ReducerList,
 } from "shared/lib/components/DynamicReducerLoader/DynamicReducerLoader";
-import { Box, Message, MessageAlign } from "shared/ui";
+import { Box, Text, TextAlign } from "shared/ui";
 import { getArticleDetailsCommentsIsLoading } from "../../model/selectors/commentsSelectors";
 import {
     ArticleDetailsCommentsReducer,
@@ -26,6 +26,7 @@ const reducers: ReducerList = {
 
 const ArticleDetailsPage = () => {
     const { t } = useTranslation("article");
+
     const { id: articleId } = useParams<{ id: string }>();
     const comments = useAppSelector(getArticleDetailsComments.selectAll);
     const isLoading = useAppSelector(getArticleDetailsCommentsIsLoading);
@@ -41,12 +42,7 @@ const ArticleDetailsPage = () => {
     );
 
     if (!articleId) {
-        return (
-            <Message
-                text={t("Article not found")}
-                align={MessageAlign.CENTER}
-            />
-        );
+        return <Text text={t("Article not found")} align={TextAlign.CENTER} />;
     }
 
     return (

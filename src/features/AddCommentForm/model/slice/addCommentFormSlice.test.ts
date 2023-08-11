@@ -14,6 +14,6 @@ describe("addCommentFormSlice.test", () => {
                 state,
                 addCommentFormActions.setText("New Text")
             )
-        ).toBe("New Text");
+        ).toEqual({ text: "New Text" });
     });
 });

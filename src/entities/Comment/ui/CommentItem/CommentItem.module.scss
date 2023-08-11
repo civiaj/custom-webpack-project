@@ -1,3 +1,27 @@
 .CommentItem {
-    color: inherit;
+    border: 1px solid var(--color-grey-200);
+    border-radius: var(--border-radius-s);
+    padding: var(--p-s);
+    display: flex;
+    flex-direction: column;
+    gap: var(--g-m);
+
+    &:not(:last-child) {
+        margin-bottom: var(--my-s);
+    }
+
+    .link {
+        display: flex;
+        align-items: center;
+        gap: var(--g-m);
+        align-self: flex-start;
+
+        img {
+            border-radius: 50%;
+        }
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
 }

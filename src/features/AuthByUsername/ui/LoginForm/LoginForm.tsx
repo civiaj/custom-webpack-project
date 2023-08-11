@@ -6,7 +6,7 @@ import { useAppDispatch, useAppSelector } from "app/providers/StoreProvider";
 import { loginActions, loginReducer } from "../../model/slice/loginSlice";
 import { FormEventHandler, memo, useCallback } from "react";
 import { loginByUsername } from "features/AuthByUsername/model/services/loginByUsername";
-import { Message, MessageTheme } from "shared/ui";
+import { Text, TextTheme } from "shared/ui";
 
 import { getPassword } from "../../model/selector/getPassword/getPassword";
 import { getIsLoading } from "../../model/selector/getIsLoading/getIsLoading";
@@ -78,10 +78,7 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
                     />
                 </label>
                 {error && (
-                    <Message
-                        text={t("login-error")}
-                        theme={MessageTheme.ERROR}
-                    />
+                    <Text text={t("login-error")} theme={TextTheme.ERROR} />
                 )}
                 <AppButton
                     className={cls.loginBtn}

@@ -5,7 +5,7 @@ export { Loader } from "./Loader/Loader";
 export { Modal } from "./Modal/Modal";
 export { Portal } from "./Portal/Portal";
 export { ButtonSpinner } from "./ButtonSpinner/ButtonSpinner";
-export { Message, MessageTheme, MessageAlign } from "./Message/Message";
+export { Text, TextTheme, TextAlign } from "./Text/Text";
 export { Avatar, AvatarTheme } from "./Avatar/Avatar";
 export { Select, SelectOption } from "./Select/Select";
 export { Box } from "./Box/Box";

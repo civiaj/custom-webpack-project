@@ -19,7 +19,11 @@ export const Code = (props: CodeProps) => {
     return (
         <code className={classNames(cls.Code, {}, [className])}>
             <pre>{text}</pre>
-            <AppButton onClick={onCopy} theme={AppButtonTheme.COPY_CODE}>
+            <AppButton
+                className={cls.copy}
+                onClick={onCopy}
+                theme={AppButtonTheme.ICON}
+            >
                 <CopyCodeIcon />
             </AppButton>
         </code>

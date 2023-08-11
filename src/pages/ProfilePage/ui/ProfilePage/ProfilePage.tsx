@@ -18,7 +18,7 @@ import {
 import { ProfilePageHeader } from "../ProfilePageHeader/ProfilePageHeader";
 import { Currency } from "entities/Currency";
 import { Country } from "entities/Country";
-import { Box, Message } from "shared/ui";
+import { Box, Text } from "shared/ui";
 import { useTranslation } from "react-i18next";
 import { useInitialEffect } from "shared/lib";
 import { useParams } from "react-router-dom";
@@ -110,7 +110,7 @@ const ProfilePage = () => {
             {validateErrors?.length && (
                 <Box>
                     {validateErrors.map((err) => (
-                        <Message
+                        <Text
                             key={err}
                             text={validateErrorsTranslations[err]}
                         />

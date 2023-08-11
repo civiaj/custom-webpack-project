@@ -46,6 +46,7 @@
       "type": [
         "IT"
       ],
+      "userId": "1",
       "blocks": [
         {
           "id": "1",
@@ -138,6 +139,30 @@
       "userId": "1",
       "text": "тест",
       "id": "8MjVsbC"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "wefwef",
+      "id": "_4Aa1X4"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "Я ДАУН",
+      "id": "HnS-gmm"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "fwewefwef",
+      "id": "P_D3eSg"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "BLACK LIVES MATTER",
+      "id": "R1ZdYfr"
     }
   ],
   "users": [

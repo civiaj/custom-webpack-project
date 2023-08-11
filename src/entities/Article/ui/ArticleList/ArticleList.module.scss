@@ -1,0 +1,19 @@
+.ArticleList {
+    color: inherit;
+}
+
+.LIST {
+    display: flex;
+    flex-direction: column;
+    gap: var(--g-m);
+}
+
+.TILE {
+    display: grid;
+    gap: var(--g-m);
+    grid-template-columns: 1fr 1fr 1fr;
+
+    @media screen and (width <= 900px) {
+        grid-template-columns: 1fr 1fr;
+    }
+}

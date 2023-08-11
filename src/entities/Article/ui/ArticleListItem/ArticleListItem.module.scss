@@ -1,0 +1,79 @@
+.listItem {
+    display: flex;
+    flex-direction: column;
+    gap: var(--g-s);
+
+    .info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .infoText {
+        font-weight: 700;
+    }
+
+    .view {
+        display: flex;
+        align-items: center;
+        gap: var(--g-es);
+        opacity: 0.8;
+
+        svg {
+            width: 2rem;
+            height: 2rem;
+        }
+    }
+
+    .readBtn {
+        align-self: flex-end;
+    }
+}
+
+.tileItem {
+    display: flex;
+    flex-direction: column;
+    gap: var(--g-es);
+    width: 30rem;
+
+    .img {
+        aspect-ratio: 1/1;
+
+        img {
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+
+    .info {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--g-es);
+    }
+
+    .infoText {
+        font-size: var(--font-size-s);
+        font-weight: 700;
+    }
+
+    .view {
+        display: flex;
+        align-items: center;
+        gap: var(--g-es);
+        opacity: 0.8;
+
+        p {
+            font-size: var(--font-size-s);
+        }
+
+        svg {
+            width: 1.4rem;
+            height: 1.4rem;
+        }
+    }
+
+    .boldTitle {
+        font-weight: 700;
+    }
+}
