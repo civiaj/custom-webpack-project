@@ -10,10 +10,13 @@ export const useInfiniteScroll = (props: UseInfiniteScrollProps) => {
     const { callback, triggerRef, wrapperRef } = props;
 
     useEffect(() => {
+        const wrapperElement = wrapperRef.current;
+        const triggerElement = triggerRef.current;
+
         let observer: IntersectionObserver | undefined;
         if (callback) {
             const options = {
-                root: wrapperRef.current,
+                root: wrapperElement,
                 rootMargin: "5px",
                 threshold: 1.0,
             };
@@ -21,13 +24,11 @@ export const useInfiniteScroll = (props: UseInfiniteScrollProps) => {
             observer = new IntersectionObserver(([entry]) => {
                 if (entry.isIntersecting) callback();
             }, options);
-            observer.observe(triggerRef.current);
+            observer.observe(triggerElement);
         }
 
         return () => {
-            // ref will never change
-            // eslint-disable-next-line
-            if (observer) observer.unobserve(triggerRef.current);
+            if (observer) observer.unobserve(triggerElement);
         };
     }, [triggerRef, wrapperRef, callback]);
 };
