@@ -6,8 +6,9 @@ import {
 import { RootState } from "app/providers/StoreProvider";
 import { Article, ArticleView } from "entities/Article";
 import { ArticlesPageSchema } from "../types/articlesPageSchema";
-import { fetchArticlesPage } from "../services/fetchArticlesPage";
+import { fetchArticlesPage } from "../services/fetchArticlesPage/fetchArticlesPage";
 import { LOCAL_STORAGE_VIEW_KEY } from "shared/const/localStorage";
+import { MAX_LIST_ARTICLES, MAX_TILE_ARTICLES } from "shared/const/articles";
 
 const articlesPageAdapter = createEntityAdapter<Article>({
     selectId: (article) => article.id,
@@ -25,6 +26,8 @@ const articlesPageSlice = createSlice({
         view: ArticleView.LIST,
         error: undefined,
         isLoading: false,
+        page: 1,
+        hasMore: true,
     }),
     reducers: {
         setView: (state, action: PayloadAction<ArticleView>) => {
@@ -33,9 +36,19 @@ const articlesPageSlice = createSlice({
         },
 
         initState: (state) => {
-            state.view = localStorage.getItem(
+            const view = localStorage.getItem(
                 LOCAL_STORAGE_VIEW_KEY
             ) as ArticleView;
+
+            state.view = view;
+            state.limit =
+                view === ArticleView.LIST
+                    ? MAX_LIST_ARTICLES
+                    : MAX_TILE_ARTICLES;
+        },
+
+        setPage: (state, action: PayloadAction<number>) => {
+            state.page = action.payload;
         },
     },
     extraReducers: (builder) => {
@@ -48,7 +61,8 @@ const articlesPageSlice = createSlice({
                 fetchArticlesPage.fulfilled,
                 (state, action: PayloadAction<Article[]>) => {
                     state.isLoading = false;
-                    articlesPageAdapter.setAll(state, action.payload);
+                    articlesPageAdapter.addMany(state, action.payload);
+                    state.hasMore = action.payload.length > 0;
                 }
             )
             .addCase(fetchArticlesPage.rejected, (state, action) => {

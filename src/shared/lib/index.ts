@@ -1,3 +1,3 @@
 export { classNames } from "./classNames/classNames";
-export { useLocalStorage } from "./useLocalStorage/useLocalStorage";
-export { useInitialEffect } from "./useInitialEffect/useInitialEffect";
+export { useLocalStorage } from "./hooks/useLocalStorage/useLocalStorage";
+export { useInitialEffect } from "./hooks/useInitialEffect/useInitialEffect";

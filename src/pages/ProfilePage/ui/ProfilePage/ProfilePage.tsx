@@ -22,6 +22,7 @@ import { Box, Text } from "shared/ui";
 import { useTranslation } from "react-i18next";
 import { useInitialEffect } from "shared/lib";
 import { useParams } from "react-router-dom";
+import { Page } from "shared/ui";
 
 const profileReducers: ReducerList = {
     profile: profileReducer,
@@ -106,32 +107,34 @@ const ProfilePage = () => {
 
     return (
         <DynamicReducerLoader reducers={profileReducers}>
-            <ProfilePageHeader />
-            {validateErrors?.length && (
+            <Page>
+                <ProfilePageHeader />
+                {validateErrors?.length && (
+                    <Box>
+                        {validateErrors.map((err) => (
+                            <Text
+                                key={err}
+                                text={validateErrorsTranslations[err]}
+                            />
+                        ))}
+                    </Box>
+                )}
                 <Box>
-                    {validateErrors.map((err) => (
-                        <Text
-                            key={err}
-                            text={validateErrorsTranslations[err]}
-                        />
-                    ))}
+                    <ProfileCard
+                        data={profile}
+                        error={error}
+                        isLoading={isLoading}
+                        onChangeFirstName={onChangeFirstName}
+                        onChangeSecondName={onChangeSecondName}
+                        onChangeAge={onChangeAge}
+                        onChangeCity={onChangeCity}
+                        onChangeAvatar={onChangeAvatar}
+                        onChangeUsername={onChangeUsername}
+                        onChangeCurrency={onChangeCurrency}
+                        onChangeCountry={onChangeCountry}
+                    />
                 </Box>
-            )}
-            <Box>
-                <ProfileCard
-                    data={profile}
-                    error={error}
-                    isLoading={isLoading}
-                    onChangeFirstName={onChangeFirstName}
-                    onChangeSecondName={onChangeSecondName}
-                    onChangeAge={onChangeAge}
-                    onChangeCity={onChangeCity}
-                    onChangeAvatar={onChangeAvatar}
-                    onChangeUsername={onChangeUsername}
-                    onChangeCurrency={onChangeCurrency}
-                    onChangeCountry={onChangeCountry}
-                />
-            </Box>
+            </Page>
         </DynamicReducerLoader>
     );
 };

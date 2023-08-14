@@ -19,6 +19,7 @@ import {
 import { AddCommentForm } from "features/AddCommentForm";
 import { useCallback } from "react";
 import { addCommentForArticle } from "pages/ArticleDetailsPage/model/services/addCommentForArticle/addCommentForArticle";
+import { Page } from "shared/ui";
 
 const reducers: ReducerList = {
     articleDetailsComments: ArticleDetailsCommentsReducer,
@@ -47,15 +48,17 @@ const ArticleDetailsPage = () => {
 
     return (
         <DynamicReducerLoader reducers={reducers} removeAfterUnmount>
-            <Box>
-                <ArticleDetails id={articleId} />
-            </Box>
-            <Box>
-                <AddCommentForm onSendComment={onSendComment} />
-            </Box>
-            <Box>
-                <CommentList isLoading={isLoading} comments={comments} />
-            </Box>
+            <Page>
+                <Box>
+                    <ArticleDetails id={articleId} />
+                </Box>
+                <Box>
+                    <AddCommentForm onSendComment={onSendComment} />
+                </Box>
+                <Box>
+                    <CommentList isLoading={isLoading} comments={comments} />
+                </Box>
+            </Page>
         </DynamicReducerLoader>
     );
 };
