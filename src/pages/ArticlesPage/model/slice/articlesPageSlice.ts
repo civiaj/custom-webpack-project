@@ -28,6 +28,7 @@ const articlesPageSlice = createSlice({
         isLoading: false,
         page: 1,
         hasMore: true,
+        _inited: false,
     }),
     reducers: {
         setView: (state, action: PayloadAction<ArticleView>) => {
@@ -45,6 +46,7 @@ const articlesPageSlice = createSlice({
                 view === ArticleView.LIST
                     ? MAX_LIST_ARTICLES
                     : MAX_TILE_ARTICLES;
+            state._inited = true;
         },
 
         setPage: (state, action: PayloadAction<number>) => {

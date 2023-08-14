@@ -4,7 +4,8 @@ import {
     ArticleView,
     ArticleViewSelector,
 } from "entities/Article";
-import { fetchNextArticlesPage } from "pages/ArticlesPage/model/services/fetchNextArticlesPage/fetchNextArticlesPage";
+import { fetchNextArticlesPage } from "../../model/services/fetchNextArticlesPage/fetchNextArticlesPage";
+import { initArticlesPage } from "../../model/services/initArticlesPage/initArticlesPage";
 import { useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useInitialEffect } from "shared/lib";
@@ -18,7 +19,6 @@ import {
     getArticlesPageIsLoading,
     getArticlesPageView,
 } from "../../model/selectors/articlesPageSelectors";
-import { fetchArticlesPage } from "../../model/services/fetchArticlesPage/fetchArticlesPage";
 import {
     articlesPageActions,
     articlesPageReducer,
@@ -48,12 +48,11 @@ const ArticlesPage = () => {
     }, [dispatch]);
 
     useInitialEffect(() => {
-        dispatch(articlesPageActions.initState());
-        dispatch(fetchArticlesPage({ page: 1 }));
+        dispatch(initArticlesPage());
     });
 
     return (
-        <DynamicReducerLoader reducers={reducers}>
+        <DynamicReducerLoader reducers={reducers} removeAfterUnmount={false}>
             <Page onScrollEnd={onLoadNextPart}>
                 <div className={cls.header}>
                     <Text title={t("Articles")} />

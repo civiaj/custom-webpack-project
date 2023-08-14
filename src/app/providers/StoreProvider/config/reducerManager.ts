@@ -1,4 +1,9 @@
-import { AnyAction, Reducer, ReducersMapObject, combineReducers } from "@reduxjs/toolkit";
+import {
+    AnyAction,
+    Reducer,
+    ReducersMapObject,
+    combineReducers,
+} from "@reduxjs/toolkit";
 import { ReducerManager, RootState, RootStateKey } from "./types";
 
 export function createReducerManager(
