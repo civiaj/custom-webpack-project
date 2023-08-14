@@ -19,7 +19,7 @@ import {
 import { AddCommentForm } from "features/AddCommentForm";
 import { useCallback } from "react";
 import { addCommentForArticle } from "pages/ArticleDetailsPage/model/services/addCommentForArticle/addCommentForArticle";
-import { Page } from "shared/ui";
+import { Page } from "widgets/Page/Page";
 
 const reducers: ReducerList = {
     articleDetailsComments: ArticleDetailsCommentsReducer,

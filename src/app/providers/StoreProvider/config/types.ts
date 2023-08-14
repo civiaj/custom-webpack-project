@@ -15,10 +15,12 @@ import { LoginSchema } from "features/AuthByUsername";
 import { ArticleDetailsCommentsSchema } from "pages/ArticleDetailsPage";
 import { ArticlesPageSchema } from "pages/ArticlesPage";
 import { createReduxStore } from "./store";
+import { ScrollRestorationSchema } from "features/ScrollRestoration";
 
 export type RootState = {
     counter: CounterSchema;
     user: UserSchema;
+    scrollRestoration: ScrollRestorationSchema;
     // async
     login?: LoginSchema;
     profile?: ProfileSchema;

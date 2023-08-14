@@ -13,7 +13,8 @@ import {
     DynamicReducerLoader,
     ReducerList,
 } from "shared/lib/components/DynamicReducerLoader/DynamicReducerLoader";
-import { Page, Text } from "shared/ui";
+import { Text } from "shared/ui";
+import { Page } from "widgets/Page/Page";
 import {
     // getArticlesPageError,
     getArticlesPageIsLoading,

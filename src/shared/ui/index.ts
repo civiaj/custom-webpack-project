@@ -11,4 +11,3 @@ export { Select, SelectOption } from "./Select/Select";
 export { Box } from "./Box/Box";
 export { Skeleton } from "./Skeleton/Skeleton";
 export { Code } from "./Code/Code";
-export { Page } from "./Page/Page";

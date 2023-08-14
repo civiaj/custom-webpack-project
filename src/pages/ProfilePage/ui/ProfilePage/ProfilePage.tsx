@@ -22,7 +22,7 @@ import { Box, Text } from "shared/ui";
 import { useTranslation } from "react-i18next";
 import { useInitialEffect } from "shared/lib";
 import { useParams } from "react-router-dom";
-import { Page } from "shared/ui";
+import { Page } from "widgets/Page/Page";
 
 const profileReducers: ReducerList = {
     profile: profileReducer,
