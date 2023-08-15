@@ -1,11 +1,5 @@
 import { useAppDispatch, useAppSelector } from "app/providers/StoreProvider";
-import {
-    ArticleList,
-    ArticleView,
-    ArticleViewSelector,
-} from "entities/Article";
-import { fetchNextArticlesPage } from "../../model/services/fetchNextArticlesPage/fetchNextArticlesPage";
-import { initArticlesPage } from "../../model/services/initArticlesPage/initArticlesPage";
+import { ArticleList } from "entities/Article";
 import { useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useInitialEffect } from "shared/lib";
@@ -20,12 +14,15 @@ import {
     getArticlesPageIsLoading,
     getArticlesPageView,
 } from "../../model/selectors/articlesPageSelectors";
+import { fetchNextArticlesPage } from "../../model/services/fetchNextArticlesPage/fetchNextArticlesPage";
+import { initArticlesPage } from "../../model/services/initArticlesPage/initArticlesPage";
 import {
-    articlesPageActions,
     articlesPageReducer,
     getArticles,
 } from "../../model/slice/articlesPageSlice";
 import cls from "./ArticlesPage.module.scss";
+import { ArticlesPageFilters } from "../ArticlesPageFilters/ArticlesPageFilters";
+import { useSearchParams } from "react-router-dom";
 
 const reducers: ReducerList = {
     articles: articlesPageReducer,
@@ -40,16 +37,14 @@ const ArticlesPage = () => {
     // const error = useAppSelector(getArticlesPageError);
     const view = useAppSelector(getArticlesPageView);
 
-    const ovViewClick = (newView: ArticleView) => {
-        dispatch(articlesPageActions.setView(newView));
-    };
+    const [searchParams, setSearchparams] = useSearchParams();
 
     const onLoadNextPart = useCallback(() => {
         dispatch(fetchNextArticlesPage());
     }, [dispatch]);
 
     useInitialEffect(() => {
-        dispatch(initArticlesPage());
+        dispatch(initArticlesPage(searchParams));
     });
 
     return (
@@ -57,10 +52,7 @@ const ArticlesPage = () => {
             <Page onScrollEnd={onLoadNextPart}>
                 <div className={cls.header}>
                     <Text title={t("Articles")} />
-                    <ArticleViewSelector
-                        onViewClick={ovViewClick}
-                        view={view}
-                    />
+                    <ArticlesPageFilters />
                 </div>
                 <ArticleList
                     articles={articles}

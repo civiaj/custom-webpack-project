@@ -7,6 +7,7 @@ export enum ArticleBlockType {
 }
 
 export enum ArticleType {
+    ALL = "ALL",
     IT = "IT",
     SCIENCE = "SCIENCE",
     ECONOMICS = "ECONOMICS",
@@ -15,6 +16,12 @@ export enum ArticleType {
 export enum ArticleView {
     TILE = "TILE",
     LIST = "LIST",
+}
+
+export enum ArticleSortField {
+    VIEWS = "views",
+    TITLE = "title",
+    CREATED = "createdAt",
 }
 
 export interface AricleBlockBase {

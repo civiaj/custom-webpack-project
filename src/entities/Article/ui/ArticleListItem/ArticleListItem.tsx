@@ -56,10 +56,19 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
                         <EyeIcon />
                     </div>
                 </div>
-                <Text text={article.title} textStyle={cls.boldTitle} />
+                <div className={cls.bottom}>
+                    <div className={cls.textContainer}>
+                        <Text text={article.title} textStyle={cls.boldTitle} />
 
-                <Text text={textBlock.paragraphs[0].substring(0, 50) + "..."} />
-                <AppButton onClick={onOpenArticle}>{t("Read more")}</AppButton>
+                        <Text
+                            text={textBlock.paragraphs[0]}
+                            className={cls.text}
+                        />
+                    </div>
+                    <AppButton onClick={onOpenArticle} className={cls.btn}>
+                        {t("Read more")}
+                    </AppButton>
+                </div>
             </Box>
         );
     }

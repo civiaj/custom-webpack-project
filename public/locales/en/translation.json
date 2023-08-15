@@ -21,5 +21,16 @@
   "Send": "Send",
   "Enter comment text": "Enter comment text...",
   "Leave a comment": "Leave a comment",
-  "View": "View"
+  "View": "View",
+  "Sort by": "Sort by",
+  "Order": "Order",
+  "Ascending": "Ascending",
+  "Descending": "Descending",
+  "Date": "Date",
+  "Title": "Title",
+  "Views": "Views",
+  "IT": "IT",
+  "All": "All",
+  "Economics": "Economics",
+  "Science": "Science"
 }

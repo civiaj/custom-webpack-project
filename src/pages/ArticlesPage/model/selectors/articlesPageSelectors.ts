@@ -1,5 +1,5 @@
 import { RootState } from "app/providers/StoreProvider";
-import { ArticleView } from "entities/Article";
+import { ArticleSortField, ArticleType, ArticleView } from "entities/Article";
 import { ARTICLES_LIMIT } from "shared/const/articles";
 
 export const getArticlesPageIsLoading = (state: RootState) =>
@@ -21,3 +21,15 @@ export const getArticlesPageHasMore = (state: RootState) =>
 
 export const getArticlesPageInited = (state: RootState) =>
     state.articles?._inited;
+
+export const getArticlesPageOrder = (state: RootState) =>
+    state.articles?.order || "asc";
+
+export const getArticlesPageSort = (state: RootState) =>
+    state.articles?.sort || ArticleSortField.CREATED;
+
+export const getArticlesPageSearch = (state: RootState) =>
+    state.articles?.search ?? "";
+
+export const getArticlesPageType = (state: RootState) =>
+    state.articles?.type ?? ArticleType.ALL;

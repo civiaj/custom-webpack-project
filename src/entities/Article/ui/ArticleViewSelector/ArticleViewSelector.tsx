@@ -1,10 +1,9 @@
-import { classNames } from "shared/lib";
-import cls from "./ArticleViewSelector.module.scss";
-import { useTranslation } from "react-i18next";
-import { ArticleView } from "../../model/types/article";
-import { AppButton, AppButtonTheme, Text } from "shared/ui";
-import { TileIcon } from "shared/assets/icons/TileIcons";
 import { ListIcon } from "shared/assets/icons/ListIcon";
+import { TileIcon } from "shared/assets/icons/TileIcons";
+import { classNames } from "shared/lib";
+import { AppButton, AppButtonTheme } from "shared/ui";
+import { ArticleView } from "../../model/types/article";
+import cls from "./ArticleViewSelector.module.scss";
 
 interface ArticleViewSelectorProps {
     className?: string;
@@ -25,7 +24,6 @@ const viewItems = [
 
 export const ArticleViewSelector = (props: ArticleViewSelectorProps) => {
     const { className, onViewClick, view } = props;
-    const { t } = useTranslation();
 
     const clickHandler = (newView: ArticleView) => () => {
         if (newView !== view) onViewClick?.(newView);

@@ -3,7 +3,7 @@ import { Select, SelectOption } from "shared/ui";
 import { useTranslation } from "react-i18next";
 import { Country } from "../../model/types/country";
 
-const countryOptions: SelectOption[] = [
+const countryOptions: SelectOption<Country>[] = [
     { content: Country.Armenia, value: Country.Armenia },
     { content: Country.Belarus, value: Country.Belarus },
     { content: Country.Kazakhstan, value: Country.Kazakhstan },

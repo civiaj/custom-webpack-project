@@ -1,9 +1,10 @@
-import { classNames } from "shared/lib";
-import cls from "./ArticleList.module.scss";
-import { useTranslation } from "react-i18next";
-import { Article, ArticleView } from "../../model/types/article";
 import { useCallback } from "react";
+import { MAX_LIST_ARTICLES, MAX_TILE_ARTICLES } from "shared/const/articles";
+import { classNames } from "shared/lib";
+import { Article, ArticleView } from "../../model/types/article";
 import { ArticleListItem } from "../ArticleListItem/ArticleListItem";
+import { ArticleListItemSkeleton } from "../ArticleListItem/ArticleListItemSkeleton";
+import cls from "./ArticleList.module.scss";
 
 interface ArticleListProps {
     className?: string;
@@ -20,7 +21,12 @@ export const ArticleList = (props: ArticleListProps) => {
         view = ArticleView.TILE,
     } = props;
 
-    const { t } = useTranslation();
+    const getSkeleton = () =>
+        Array(view === ArticleView.TILE ? MAX_TILE_ARTICLES : MAX_LIST_ARTICLES)
+            .fill(0)
+            .map((_, index) => (
+                <ArticleListItemSkeleton key={index} view={view} />
+            ));
 
     const renderArticle = useCallback(
         (article: Article) => {
@@ -38,6 +44,7 @@ export const ArticleList = (props: ArticleListProps) => {
     return (
         <div className={classNames("", {}, [className, cls[view]])}>
             {articles.length > 0 ? articles.map(renderArticle) : null}
+            {isLoading && getSkeleton()}
         </div>
     );
 };

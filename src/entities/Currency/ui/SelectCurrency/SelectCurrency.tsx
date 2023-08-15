@@ -3,7 +3,7 @@ import { Select, SelectOption } from "shared/ui";
 import { useTranslation } from "react-i18next";
 import { Currency } from "../../model/types/currency";
 
-const currencyOptions: SelectOption[] = [
+const currencyOptions: SelectOption<Currency>[] = [
     { content: Currency.RUB, value: Currency.RUB },
     { content: Currency.EUR, value: Currency.EUR },
     { content: Currency.USD, value: Currency.USD },
